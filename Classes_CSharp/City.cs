@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,9 +18,22 @@ namespace Classes_CSharp
             Description = descr;
             Country = country;
             _population = population;
-            //country._citys.Add(this);
+            
         }
 
+        
+        public void AddToCountryList(City city)
+        {
+            if (Country._citys.Contains(city))
+            {
+                Console.WriteLine("Contains");
+            }
+            else
+            {
+                Country._citys.Add(city);
+            }
+            
+        }
         public virtual void PrintHistory(string history)
         {
             Console.WriteLine(history);
