@@ -14,7 +14,7 @@ namespace Classes_CSharp
         public string Description { get; private set; }
         private int Code { get;  set; }
 
-        public Country(string region, string currency, string description, int code)
+        public Country(string description, int code, string region, string currency)
         {
             _region = region;
             Description = description;
@@ -22,16 +22,17 @@ namespace Classes_CSharp
             _nationalCurrency = currency;
         }
 
-        public void AddCity(string description, int population)
+        public void AddCity(string description, int population, bool city)
         {
+            // if bool city == true  city else village
             Country country = this;
-            if (country != null)
+            if (country != null & city == true)
             {
                 _citys.Add(new City(description, this, population));
             }
-            else
+            else if(country != null & city != true)
             {
-                Console.WriteLine("Obiectul nu este initializat!");
+                _citys.Add(new Village(description, this, population));
             }
         }
 

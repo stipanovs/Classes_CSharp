@@ -8,6 +8,13 @@ namespace Classes_CSharp
 {
     public class Village : City
     {
+        private int _distanceToCapital;
+
+        public int DistanceToCapital
+        {
+            get { return _distanceToCapital; }
+            set{_distanceToCapital = value * 2;}
+        }
         public Village(string descr, Country country, int population)
             : base(descr, country, population)
         {
@@ -18,7 +25,7 @@ namespace Classes_CSharp
         {
             Console.WriteLine("Welcome to " + this.Description);
             base.PrintHistory(history);
-            Console.WriteLine("Welcome to " + this.Description);
+            
         }
     }
 }

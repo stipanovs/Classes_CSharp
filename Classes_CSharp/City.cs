@@ -24,5 +24,10 @@ namespace Classes_CSharp
             Console.WriteLine(history);
         }
 
+        public virtual void PrintHistory(string history, string author)
+        {
+            Console.WriteLine(history);
+            Console.WriteLine(author);
+        }
     }
 }
