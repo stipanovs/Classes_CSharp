@@ -11,7 +11,7 @@ namespace Classes_CSharp
     {
         public readonly int _population;
         public string Description { get; private set; }
-        public Country Country { get; private set; }
+        public Country Country { get; protected set; }
 
         public City(string descr, Country country, int population)
         {

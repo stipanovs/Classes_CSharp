@@ -24,16 +24,11 @@ namespace Classes_CSharp
 
         public void AddCity(string description, int population, bool city)
         {
+
             // if bool city == true  city else village
-            Country country = this;
-            if (country != null & city == true)
-            {
-                _citys.Add(new City(description, this, population));
-            }
-            else if(country != null & city != true)
-            {
-                _citys.Add(new Village(description, this, population));
-            }
+            //Country country = this;
+            _citys.Add(city ? new City(description, this, population) : 
+                new Village(description, this, population));
         }
 
         public void AddCity(string description, Country country, int population)

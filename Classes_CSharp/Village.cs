@@ -23,7 +23,7 @@ namespace Classes_CSharp
 
         public override void PrintHistory(string history)
         {
-            Console.WriteLine("Welcome to " + this.Description);
+            Console.WriteLine("Welcome to " + Description);
             base.PrintHistory(history);
             
         }
