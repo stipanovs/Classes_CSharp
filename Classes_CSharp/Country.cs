@@ -10,7 +10,7 @@ namespace Classes_CSharp
     {
         public string _region;
         public readonly string _nationalCurrency;
-        public List<City> _citys = new List<City>();
+        public readonly List<City> _citys = new List<City>();
         public string Description { get; private set; }
         private int Code { get;  set; }
 
@@ -47,6 +47,11 @@ namespace Classes_CSharp
             {
                 Console.WriteLine("Country nu este initializat!");
             }
+        }
+
+        public void AddCity(City city)
+        {
+            _citys.Add(city);
         }
 
 

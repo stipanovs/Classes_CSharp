@@ -17,6 +17,7 @@ namespace Classes_CSharp
             Description = descr;
             Country = country;
             _population = population;
+            //country._citys.Add(this);
         }
 
         public virtual void PrintHistory(string history)

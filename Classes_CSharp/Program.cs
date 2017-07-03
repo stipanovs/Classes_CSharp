@@ -12,22 +12,23 @@ namespace Classes_CSharp
     {
         static void Main(string[] args)
         {
-            Country moldova = new Country("R. Moldova", 643, "EUROPE", "LEI");
+            Country moldova = new Country("Republica Moldova", 643, "EUROPE", "LEI");
             moldova.AddCity("Chisinau", 500000, true);
             moldova.AddCity("Orhei", 145000, true);
             moldova.AddCity("Cocieri", 3452, false);
-            
-            Village izbiste = new Village("Izbiste", moldova, 4512);
-            //izbiste.DistanceToCapital = 200;
+
+            Village izbiste = new Village("Izbiste", moldova, 4512); // de facut sa se duca in List<city> la Country
+            moldova.AddCity(izbiste);
+           
 
 
-            //var citys = moldova._citys;
+           
             foreach (var city in moldova._citys)
             {
                 Console.WriteLine(city.Description + " " + city.Country.Description);
             }
             
-            izbiste.PrintHistory("A fost odata ...", "Ion Creanga");
+            //izbiste.PrintHistory("A fost odata ...", "Ion Creanga");
             Console.WriteLine();
                 
             Console.ReadLine();
