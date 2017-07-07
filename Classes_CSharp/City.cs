@@ -31,15 +31,5 @@ namespace Classes_CSharp
                 country._location.Add(loc);
             }
          }
-        public void PrintHistory(string history)
-        {
-            Console.WriteLine(history);
-        }
-
-        public void PrintHistory(string history, string author)
-        {
-            Console.WriteLine(history);
-            Console.WriteLine(author);
-        }
     }
 }

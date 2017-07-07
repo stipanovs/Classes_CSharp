@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,13 @@ namespace Classes_CSharp
 {
     public class Country
     {
-        public string _region;
+        private Region _region;
         private readonly string _nationalCurrency;
         public readonly List<Location> _location = new List<Location>();
         public string Description { get; private set; }
         private int Code { get;  set; }
 
-        public Country(string description, int code, string region, string currency)
+        public Country(string description, int code, Region region, string currency)
         {
             _region = region;
             _nationalCurrency = currency;
@@ -33,6 +34,7 @@ namespace Classes_CSharp
 
         public void AddLocation(string description)
         {
+            
             City newLocation = new City(description, this);
             if (!_location.Contains(newLocation)) _location.Add(newLocation);
         }
@@ -41,8 +43,5 @@ namespace Classes_CSharp
         {
             if (!_location.Contains(loc)) _location.Add(loc);
         }
-
-
-
     }
 }
