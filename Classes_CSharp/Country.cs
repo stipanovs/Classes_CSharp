@@ -22,7 +22,7 @@ namespace Classes_CSharp
             Code = code;
         }
 
-        //public void AddCity(string description, int population, bool city)
+        //public void AddLocation(string description, int population, bool city)
         //{
 
         //    // if bool city == true  city else village
@@ -31,14 +31,15 @@ namespace Classes_CSharp
         //        new Village(description, this, population));
         //}
 
-        public void AddCity(string description, Country country, int population)
+        public void AddLocation(string description)
         {
-            _location.Add(new City(description, country));
+            City newLocation = new City(description, this);
+            if (!_location.Contains(newLocation)) _location.Add(newLocation);
         }
 
-        public void AddCity(City city)
+        public void AddLocation(Location loc)
         {
-            _location.Add(city);
+            if (!_location.Contains(loc)) _location.Add(loc);
         }
 
 

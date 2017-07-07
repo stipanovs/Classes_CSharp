@@ -9,7 +9,7 @@ namespace Classes_CSharp
 {
     public class City : Location
     {
-        private readonly int _population;
+        
         public override string Description { get; set; }
         public override Country Country { get; set; }
 
@@ -17,17 +17,18 @@ namespace Classes_CSharp
         {
             Description = descr;
             Country = country;
+            AddToCountryList(country, this);
         }
 
-        public override void AddToCountryList(Location loc)
+        public override void AddToCountryList(Country country, Location loc)
         {
-            if (Country._location.Contains(loc))
+            if (country._location.Contains(loc))
             {
                 Console.WriteLine("There are this Locations in list");
             }
             else
             {
-                Country._location.Add(loc);
+                country._location.Add(loc);
             }
          }
         public void PrintHistory(string history)

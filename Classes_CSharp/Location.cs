@@ -11,7 +11,7 @@ namespace Classes_CSharp
         public abstract Country Country { get; set; }
         public abstract string Description { get; set; }
 
-        public abstract void AddToCountryList(Location loc);
+        public abstract void AddToCountryList(Country country,Location loc);
 
     }
 }

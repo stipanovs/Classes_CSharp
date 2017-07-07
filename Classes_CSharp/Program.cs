@@ -17,35 +17,36 @@ namespace Classes_CSharp
             Country ucraina = new Country("Ucraina", 038, "EUROPE", "Grivna");
             Country russia = new Country("Russia", 038, "EURASIA", "RUB");
 
-            moldova.AddCity("Chisinau", moldova, 500000);
-            moldova.AddCity("Orhei", moldova, 145000);
-            moldova.AddCity("Cocieri", moldova, 3452);
-            italia.AddCity("Milano",italia, 1500000);
-            italia.AddCity("Rome", italia, 2451000);
-            ucraina.AddCity("Kiev", ucraina, 2450000);
-
-            Village seliste = new Village("Seliste", moldova, 4512); // de facut sa se duca in List<city> la Country
-            seliste.AddToCountryList(seliste);
+            moldova.AddLocation("Chisinau");
+            moldova.AddLocation("Orhei");
+            moldova.AddLocation("Cocieri");
+            italia.AddLocation("Milano");
+            italia.AddLocation("Rimini");
+            italia.AddLocation("Rome");
+            ucraina.AddLocation("Kiev");
+            City moscova = new City("Moscova", russia);
+            Village seliste = new Village("Seliste", moldova); 
             
+            // postarile de marfa
             Posts post1 = new Posts(new DateTime(2017, 7, 10), moldova, italia, 3700.00, "EUR");
             Posts post2 = new Posts(new DateTime(2017, 7, 14), italia, moldova, 2450.00, "EUR");
 
-            var posts = new List<Posts>();
-            posts.Add(post1);
-            posts.Add(post2);
-            foreach (var post in posts)
+            //var posts = new List<Posts>();
+            //posts.Add(post1);
+            //posts.Add(post2);
+            //foreach (var post in posts)
+            //{
+            //    Console.WriteLine(post.ToString());
+            //}
+            
+
+            foreach (var loc in russia._location)
             {
-                Console.WriteLine(post.ToString());
+              Console.WriteLine(loc.Description + " " + loc.Country.Description);
             }
 
 
-            //foreach (var city in moldova._location)
-            //{
-            //    Console.WriteLine(city.Description + " " + city.Country.Description);
-            //}
-            
-            //izbiste.PrintHistory("A fost odata ...", "Ion Creanga");
-            //Console.WriteLine();
+            Console.WriteLine();
                 
             Console.ReadLine();
         }
