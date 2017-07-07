@@ -9,44 +9,36 @@ namespace Classes_CSharp
     public class Country
     {
         public string _region;
-        public readonly string _nationalCurrency;
-        public readonly List<City> _citys = new List<City>();
+        private readonly string _nationalCurrency;
+        public readonly List<Location> _location = new List<Location>();
         public string Description { get; private set; }
         private int Code { get;  set; }
 
         public Country(string description, int code, string region, string currency)
         {
             _region = region;
+            _nationalCurrency = currency;
             Description = description;
             Code = code;
-            _nationalCurrency = currency;
         }
 
-        public void AddCity(string description, int population, bool city)
-        {
+        //public void AddCity(string description, int population, bool city)
+        //{
 
-            // if bool city == true  city else village
-            //Country country = this;
-            _citys.Add(city ? new City(description, this, population) : 
-                new Village(description, this, population));
-        }
+        //    // if bool city == true  city else village
+        //    //Country country = this;
+        //    _location.Add(city ? new City(description, this, population) : 
+        //        new Village(description, this, population));
+        //}
 
         public void AddCity(string description, Country country, int population)
         {
-            
-            if (country != null)
-            {
-                _citys.Add(new City(description, country, population));
-            }
-            else
-            {
-                Console.WriteLine("Country nu este initializat!");
-            }
+            _location.Add(new City(description, country));
         }
 
         public void AddCity(City city)
         {
-            _citys.Add(city);
+            _location.Add(city);
         }
 
 

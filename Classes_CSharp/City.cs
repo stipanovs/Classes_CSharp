@@ -7,39 +7,35 @@ using System.Threading.Tasks;
 
 namespace Classes_CSharp
 {
-    public class City
+    public class City : Location
     {
-        public readonly int _population;
-        public string Description { get; private set; }
-        public Country Country { get; protected set; }
+        private readonly int _population;
+        public override string Description { get; set; }
+        public override Country Country { get; set; }
 
-        public City(string descr, Country country, int population)
+        public City(string descr, Country country)
         {
             Description = descr;
             Country = country;
-            _population = population;
-            
         }
 
-        
-        public void AddToCountryList(City city)
+        public override void AddToCountryList(Location loc)
         {
-            if (Country._citys.Contains(city))
+            if (Country._location.Contains(loc))
             {
-                Console.WriteLine("Contains");
+                Console.WriteLine("There are this Locations in list");
             }
             else
             {
-                Country._citys.Add(city);
+                Country._location.Add(loc);
             }
-            
-        }
-        public virtual void PrintHistory(string history)
+         }
+        public void PrintHistory(string history)
         {
             Console.WriteLine(history);
         }
 
-        public virtual void PrintHistory(string history, string author)
+        public void PrintHistory(string history, string author)
         {
             Console.WriteLine(history);
             Console.WriteLine(author);

@@ -6,26 +6,29 @@ using System.Threading.Tasks;
 
 namespace Classes_CSharp
 {
-    public class Village : City
+    public class Village : Location
     {
-        private int _distanceToCapital;
-
-        public int DistanceToCapital
-        {
-            get { return _distanceToCapital; }
-            set{_distanceToCapital = value * 2;}
-        }
-        public Village(string descr, Country country, int population)
-            : base(descr, country, population)
+        
+        
+        public Village(string descr, Country country, int population) 
         {
             
         }
 
-        public override void PrintHistory(string history)
+        public override Country Country {get; set; }
+        public override string Description {get; set; }
+
+        public override void AddToCountryList(Location loc)
         {
-            Console.WriteLine("Welcome to " + Description);
-            base.PrintHistory(history);
-            
+            if (Country._location.Contains(loc))
+            {
+                Console.WriteLine("There are this Locations in list");
+            }
+            else
+            {
+                Country._location.Add(loc);
+            }
         }
+
     }
 }

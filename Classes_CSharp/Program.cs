@@ -14,11 +14,15 @@ namespace Classes_CSharp
         {
             Country moldova = new Country("Republica Moldova", 643, "EUROPE", "LEI");
             Country italia = new Country("Italia", 040, "EUROPE", "EUR");
-            moldova.AddCity("Chisinau", 500000, true);
-            moldova.AddCity("Orhei", 145000, true);
-            moldova.AddCity("Cocieri", 3452, false);
-            italia.AddCity("Milano", 1500000, true);
+            Country ucraina = new Country("Ucraina", 038, "EUROPE", "Grivna");
+            Country russia = new Country("Russia", 038, "EURASIA", "RUB");
+
+            moldova.AddCity("Chisinau", moldova, 500000);
+            moldova.AddCity("Orhei", moldova, 145000);
+            moldova.AddCity("Cocieri", moldova, 3452);
+            italia.AddCity("Milano",italia, 1500000);
             italia.AddCity("Rome", italia, 2451000);
+            ucraina.AddCity("Kiev", ucraina, 2450000);
 
             Village seliste = new Village("Seliste", moldova, 4512); // de facut sa se duca in List<city> la Country
             seliste.AddToCountryList(seliste);
@@ -35,7 +39,7 @@ namespace Classes_CSharp
             }
 
 
-            //foreach (var city in moldova._citys)
+            //foreach (var city in moldova._location)
             //{
             //    Console.WriteLine(city.Description + " " + city.Country.Description);
             //}
