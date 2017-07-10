@@ -16,6 +16,7 @@ namespace Classes_CSharp
 
         public Location(string description, Country country, LocationType locType)
         {
+
             Description = description;
             Country = country;
             LocType = locType;

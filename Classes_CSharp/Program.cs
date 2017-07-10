@@ -13,6 +13,21 @@ namespace Classes_CSharp
     
     class Program
     {
+        public static void SwapItemsByIndex<T>(List<T> list, int indexA, int indexB)
+        {
+            T temp = list[indexA];
+            list[indexA] = list[indexB];
+            list[indexB] = temp;
+        }
+
+        public static void SwapItemsByItems<T>(List<T> list, T item1, T item2)
+        {
+            T temp = item1;
+            int tempIndex = list.IndexOf(item2);
+            list[list.IndexOf(item1)] = item2;
+            list[tempIndex] = temp;
+        }
+
         static void Main(string[] args)
         {
             List<Country> countries = Country.SetData();
@@ -27,6 +42,13 @@ namespace Classes_CSharp
             var ucraina = countries[2];
             var russia = countries[3];
 
+            countries.Insert(0, new Country("Ungaria", 451, Region.EuropeUnion, "EUR"));
+
+            // swap
+            SwapItemsByIndex<Country>(countries, 1, 3);
+            SwapItemsByItems<Country>(countries, moldova, ucraina);
+
+
             moldova.AddLocation("Chisinau", LocationType.City);
             moldova.AddLocation("Orhei", LocationType.Village);
             moldova.AddLocation("Cocieri", LocationType.City);
@@ -34,9 +56,12 @@ namespace Classes_CSharp
             italia.AddLocation("Rimini", LocationType.City);
             italia.AddLocation("Rome", LocationType.City);
             ucraina.AddLocation("Kiev", LocationType.City);
-
+            
+            // ex. IEqualityComparer
+            bool copareMoldovaToItalia = moldova.Equals(moldova, italia);
+            
             // ex. Icomparer
-            countries.Sort(new CountryComparer()); 
+            // countries.Sort(new CountryComparer()); 
 
             Console.WriteLine();
             foreach (var country in countries)
@@ -45,12 +70,6 @@ namespace Classes_CSharp
             }
 
             
-
-
-
-
-            countries.Insert(0, new Country("Ungaria", 451, Region.EuropeUnion, "EUR"));
-
             Console.WriteLine(countries[0].Description);
 
 

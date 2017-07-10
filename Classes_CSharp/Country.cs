@@ -12,7 +12,7 @@ namespace Classes_CSharp
     public class Country : EntityBase, IEqualityComparer<Country>
     {
         readonly Region _region;
-        public int? _population ; //for example 
+        private int? _population = null;   //for example 
         private readonly string _nationalCurrency;
         public readonly List<Location> _location = new List<Location>();
         public string Description { get; private set; }

@@ -10,11 +10,11 @@ namespace Classes_CSharp
     {
         private readonly DateTime _dataPublication = DateTime.Now;
         private DateTime _upToDate;
-        private Country _countryFrom;
-        private Country _countryIn;
+        public Country CountryFrom { get; private set;}
+        public Country CountryIn { get; private set; }
         //private int _distance;
         //private int _weight;
-        private double _price;
+        public double Price { get; private set; }
         private string _currency;
         //private string typeOfGoods;
         //private string _typeOfTruck;
@@ -23,21 +23,21 @@ namespace Classes_CSharp
         public Posts(DateTime upToDate, Country countryFrom, Country countryIn, double price, string currecy)
         {
             _upToDate = upToDate;
-            _countryFrom = countryFrom;
-            _countryIn = countryIn;
-            _price = price;
+            CountryFrom = countryFrom;
+            CountryIn = countryIn;
+            Price = price;
             _currency = currecy;
         }
 
 
         public void PrintPost()
         {
-            Console.WriteLine(_countryFrom.Description + "-" + _countryIn.Description + " : " + _price);
+            Console.WriteLine(CountryFrom.Description + "-" + CountryIn.Description + " : " + Price);
         }
 
         public override string ToString()
         {
-            return _countryFrom.Description + "-" + _countryIn.Description + " : " + _price + _currency;
+            return CountryFrom.Description + "-" + CountryIn.Description + " : " + Price + _currency;
         }
     }
 }
