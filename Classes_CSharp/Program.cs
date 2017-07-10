@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Classes_CSharp.Enums;
 
 namespace Classes_CSharp
 {
@@ -27,15 +28,15 @@ namespace Classes_CSharp
             Console.WriteLine(countries[0].Description);
 
 
-            moldova.AddLocation("Chisinau");
-            moldova.AddLocation("Orhei");
-            moldova.AddLocation("Cocieri");
-            italia.AddLocation("Milano");
-            italia.AddLocation("Rimini");
-            italia.AddLocation("Rome");
-            ucraina.AddLocation("Kiev");
-            City moscova = new City("Moscova", russia);
-            Village seliste = new Village("Seliste", moldova);
+            moldova.AddLocation("Chisinau", LocationType.City);
+            moldova.AddLocation("Orhei", LocationType.Village);
+            moldova.AddLocation("Cocieri", LocationType.City);
+            italia.AddLocation("Milano", LocationType.City);
+            italia.AddLocation("Rimini", LocationType.City);
+            italia.AddLocation("Rome", LocationType.City);
+            ucraina.AddLocation("Kiev", LocationType.City);
+            Location moscow = new Location("Moscow", russia, LocationType.City);
+            Location seliste = new Location("Seliste", moldova, LocationType.Village);
             
             
             // postarile de marfa

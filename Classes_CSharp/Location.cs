@@ -3,15 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Classes_CSharp.Enums;
 
 namespace Classes_CSharp
 {
-    public abstract class  Location
+    public class Location : EntityBase
     {
-        public abstract Country Country { get; set; }
-        public abstract string Description { get; set; }
+        public LocationType LocType { get; private set; }
+        public  Country Country { get; private set; }
+        public  string Description { get; private set; }
+        public override long ID { get; protected set; }
 
-        public abstract void AddToCountryList(Country country,Location loc);
+        public Location(string description, Country country, LocationType locType)
+        {
+            Description = description;
+            Country = country;
+            LocType = locType;
+            AddToCountryList(country, this);
+
+        }
+
+        public void AddToCountryList(Country country, Location loc)
+        {
+            if (country._location.Contains(loc))
+            {
+                Console.WriteLine("There are this Locations in list");
+            }
+            else
+            {
+                country._location.Add(loc);
+            }
+        }
+
 
     }
 }
