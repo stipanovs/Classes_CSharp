@@ -43,12 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Country.cs" />
-    <Compile Include="CountryEqalityComparer.cs" />
+    <Compile Include="Comparer\CountryEqalityComparer.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="Enums\LocationType.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Posts.cs" />
-    <Compile Include="CountryComparer.cs" />
+    <Compile Include="Comparer\CountryComparer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enums\Region.cs" />

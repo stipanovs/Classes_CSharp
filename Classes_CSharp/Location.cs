@@ -21,7 +21,6 @@ namespace Classes_CSharp
             Country = country;
             LocType = locType;
             AddToCountryList(country, this);
-
         }
 
         public void AddToCountryList(Country country, Location loc)
