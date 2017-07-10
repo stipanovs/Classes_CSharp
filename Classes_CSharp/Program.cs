@@ -42,6 +42,21 @@ namespace Classes_CSharp
             var ucraina = countries[2];
             var russia = countries[3];
 
+            // dictionary
+            Dictionary<string, Country> myCountries = new Dictionary<string, Country>();
+            // cream dictinary din lista de tari existenta
+
+            for (int i = 0; i < countries.Count; i++)
+            {
+                myCountries["key" + (i+1).ToString()] = countries[i];
+            }
+
+            foreach (var kvp in myCountries)
+            {
+                Console.WriteLine(kvp.Key + " " + kvp.Value.Description);
+            }
+
+
             countries.Insert(0, new Country("Ungaria", 451, Region.EuropeUnion, "EUR"));
 
             // swap
@@ -78,8 +93,8 @@ namespace Classes_CSharp
 
 
             // postarile de marfa
-            var post1 = new Posts(new DateTime(2017, 7, 10), moldova, italia, 3700.00, "EUR");
-            var post2 = new Posts(new DateTime(2017, 7, 14), italia, moldova, 2450.00, "EUR");
+            var post1 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 14), moldova, italia, 3700.00);
+            var post2 = new Posts(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), russia, moldova, 2450.00);
 
             
 

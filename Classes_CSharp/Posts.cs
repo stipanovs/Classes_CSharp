@@ -9,7 +9,8 @@ namespace Classes_CSharp
     public class Posts
     {
         private readonly DateTime _dataPublication = DateTime.Now;
-        private DateTime _upToDate;
+        public DateTime FromDate { get; private set; }
+        public DateTime UpToDate { get; private set; }
         public Country CountryFrom { get; private set;}
         public Country CountryIn { get; private set; }
         //private int _distance;
@@ -20,13 +21,14 @@ namespace Classes_CSharp
         //private string _typeOfTruck;
         //private string _description;
 
-        public Posts(DateTime upToDate, Country countryFrom, Country countryIn, double price, string currecy)
+        public Posts(DateTime fromDate, DateTime upToDate, Country countryFrom, Country countryIn, double price)
         {
-            _upToDate = upToDate;
+            FromDate = fromDate;
+            UpToDate = upToDate;
             CountryFrom = countryFrom;
             CountryIn = countryIn;
             Price = price;
-            _currency = currecy;
+            _currency = "EUR";
         }
 
 
