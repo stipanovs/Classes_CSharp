@@ -9,16 +9,16 @@ namespace Classes_CSharp.Repository
 {
     class CountryRepository : IRepository<Country>
     {
-        public List<Country> _countries = new List<Country>();
+        readonly List<Country> _countries = new List<Country>();
 
-        public void Create(Country entity)
+        public void Create(Country country)
         {
-            _countries.Add(entity);
+            _countries.Add(country);
         }
 
-        public void Delete(Country entity)
+        public void Delete(Country country)
         {
-            _countries.Remove(entity);
+            _countries.Remove(country);
         }
 
         public Country GetById(int id)
@@ -27,9 +27,16 @@ namespace Classes_CSharp.Repository
             return _countries[index];
         }
 
-        public void Update(Country entity)
+        public List<Country> GetAll()
         {
-            
+            return _countries;
         }
+
+        public void Update(Country country)
+        {
+            int index = _countries.IndexOf(country);
+            _countries[index] = country;
+        }
+
     }
 }

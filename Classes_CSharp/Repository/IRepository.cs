@@ -13,5 +13,6 @@ namespace Classes_CSharp.Repository
         void Create(T entity);
         void Delete(T entity);
         void Update(T entity);
+        List<T> GetAll();
     }
 }

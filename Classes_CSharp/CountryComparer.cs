@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Classes_CSharp
 {
-    class PriorityComparer : IComparer<Country>
+    class CountryComparer : IComparer<Country>
     {
         public int Compare(Country x, Country y)
         {

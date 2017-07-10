@@ -9,8 +9,8 @@ namespace Classes_CSharp
 {
     public class Location : EntityBase
     {
-        public LocationType LocType { get; private set; }
-        public  Country Country { get; private set; }
+        private LocationType LocType { get; set; }
+        private  Country Country { get;  set; }
         public  string Description { get; private set; }
         public override long ID { get; protected set; }
 
@@ -35,6 +35,6 @@ namespace Classes_CSharp
             }
         }
 
-
+        
     }
 }
