@@ -9,7 +9,7 @@ using Classes_CSharp.Enums;
 
 namespace Classes_CSharp
 {
-    public class Country : EntityBase, IEqualityComparer<Country>
+    public class Country : EntityBase
     {
         readonly Region _region;
         private int? _population = null;   //for example 
@@ -38,16 +38,6 @@ namespace Classes_CSharp
         public void AddLocation(Location loc)
         {
             if (!_location.Contains(loc)) _location.Add(loc);
-        }
-
-        public bool Equals(Country x, Country y)
-        {
-            return x.Description == y.Description && x.Code == y.Code;
-        }
-
-        public int GetHashCode(Country obj)
-        {
-            return (obj.Description + ";" + obj.Code).GetHashCode();
         }
 
         public static List<Country> SetData()

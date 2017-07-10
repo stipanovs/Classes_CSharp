@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Classes_CSharp.Enums;
@@ -43,17 +44,18 @@ namespace Classes_CSharp
             var russia = countries[3];
 
             // dictionary
-            Dictionary<string, Country> myCountries = new Dictionary<string, Country>();
+            Dictionary<Country, string> myCountries = new Dictionary<Country, string>(new CountryEqalityComparer());
+                
             // cream dictinary din lista de tari existenta
 
             for (int i = 0; i < countries.Count; i++)
             {
-                myCountries["key" + (i+1).ToString()] = countries[i];
+                myCountries[countries[i]] = "key" + i.ToString();
             }
 
             foreach (var kvp in myCountries)
             {
-                Console.WriteLine(kvp.Key + " " + kvp.Value.Description);
+                Console.WriteLine(kvp.Key.Description + " " + kvp.Value);
             }
 
 
@@ -73,7 +75,8 @@ namespace Classes_CSharp
             ucraina.AddLocation("Kiev", LocationType.City);
             
             // ex. IEqualityComparer
-            bool copareMoldovaToItalia = moldova.Equals(moldova, italia);
+            var dict = new Dictionary<Country, string>(new CountryEqalityComparer());
+
             
             // ex. Icomparer
             // countries.Sort(new CountryComparer()); 

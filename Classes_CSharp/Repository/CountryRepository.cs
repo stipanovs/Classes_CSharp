@@ -9,7 +9,12 @@ namespace Classes_CSharp.Repository
 {
     class CountryRepository : IRepository<Country>
     {
-        readonly List<Country> _countries = new List<Country>();
+        readonly List<Country> _countries; // db.context
+
+        public CountryRepository()
+        {
+            _countries = new List<Country>();
+        }
 
         public void Create(Country country)
         {
@@ -27,7 +32,7 @@ namespace Classes_CSharp.Repository
             return _countries[index];
         }
 
-        public List<Country> GetAll()
+        public IEnumerable<Country> GetAll()
         {
             return _countries;
         }

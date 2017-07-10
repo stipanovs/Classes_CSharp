@@ -8,7 +8,12 @@ namespace Classes_CSharp.Repository
 {
     class LocationRepository : IRepository<Location>
     {
-        private readonly List<Location> _locations = new List<Location>();
+        private readonly List<Location> _locations;
+
+        public LocationRepository()
+        {
+            _locations = new List<Location>();
+        }
         public void Create(Location loc)
         {
             _locations.Add(loc);
@@ -19,7 +24,7 @@ namespace Classes_CSharp.Repository
             _locations.Remove(loc);
         }
 
-        public List<Location> GetAll()
+        public IEnumerable<Location> GetAll()
         {
             return _locations;
         }
