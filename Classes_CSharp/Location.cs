@@ -25,13 +25,13 @@ namespace Classes_CSharp
 
         public void AddToCountryList(Country country, Location loc)
         {
-            if (country._location.Contains(loc))
+            if (country.GetAllLocations().Contains(loc))
             {
                 Console.WriteLine("There are this Locations in list");
             }
             else
             {
-                country._location.Add(loc);
+                country.GetAllLocations().Add(loc);
             }
         }
 

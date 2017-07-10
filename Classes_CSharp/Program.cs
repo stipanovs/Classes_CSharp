@@ -29,6 +29,11 @@ namespace Classes_CSharp
             list[tempIndex] = temp;
         }
 
+        public static void SetLocation()
+        {
+            
+        }
+
         static void Main(string[] args)
         {
             List<Country> countries = Country.SetData();
@@ -76,12 +81,12 @@ namespace Classes_CSharp
             
             // ex. IEqualityComparer
             var dict = new Dictionary<Country, string>(new CountryEqalityComparer());
-
             
             // ex. Icomparer
-            // countries.Sort(new CountryComparer()); 
+            countries.Sort(new CountryComparer()); 
 
             Console.WriteLine();
+
             foreach (var country in countries)
             {
                 Console.WriteLine(country.ToString());
@@ -98,12 +103,7 @@ namespace Classes_CSharp
             // postarile de marfa
             var post1 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 14), moldova, italia, 3700.00);
             var post2 = new Posts(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), russia, moldova, 2450.00);
-
             
-
-
-            
-                
             Console.ReadLine();
         }
     }

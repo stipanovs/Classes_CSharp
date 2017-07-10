@@ -14,7 +14,7 @@ namespace Classes_CSharp
         readonly Region _region;
         private int? _population = null;   //for example 
         private readonly string _nationalCurrency;
-        public readonly List<Location> _location = new List<Location>();
+        private readonly List<Location> _location = new List<Location>();
         public string Description { get; private set; }
         public int Code { get;  private set; }
         public override long ID { get; protected set; }
@@ -40,6 +40,11 @@ namespace Classes_CSharp
             if (!_location.Contains(loc)) _location.Add(loc);
         }
 
+        public List<Location> GetAllLocations()
+        {
+            return _location;
+        }
+
         public static List<Country> SetData()
         {
             return new List<Country>()
@@ -56,7 +61,7 @@ namespace Classes_CSharp
         public override string ToString()
         {
             return String.Format("{0} {1} {2} {3}",
-                Description, _region, _nationalCurrency, _population.HasValue ? _population.Value.ToString() : "Undefined");
+                Description, _region, _nationalCurrency, _population.HasValue ? _population.Value.ToString() : "Undefined"); 
         }
     }
 }
