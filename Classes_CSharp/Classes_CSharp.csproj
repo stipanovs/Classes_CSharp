@@ -47,6 +47,9 @@
     <Compile Include="EntityBase.cs" />
     <Compile Include="Enums\LocationType.cs" />
     <Compile Include="Location.cs" />
+    <Compile Include="Models\CargoDate.cs" />
+    <Compile Include="Models\CargoLocation.cs" />
+    <Compile Include="Models\CargoSpecifics.cs" />
     <Compile Include="Posts.cs" />
     <Compile Include="Comparer\CountryComparer.cs" />
     <Compile Include="Program.cs" />
@@ -60,8 +63,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

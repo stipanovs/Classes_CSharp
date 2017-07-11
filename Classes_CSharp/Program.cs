@@ -29,11 +29,7 @@ namespace Classes_CSharp
             list[tempIndex] = temp;
         }
 
-        public static void SetLocation()
-        {
-            
-        }
-
+        
         static void Main(string[] args)
         {
             List<Country> countries = Country.SetData();
@@ -57,23 +53,23 @@ namespace Classes_CSharp
             {
                 myCountries[countries[i]] = "key" + i.ToString();
             }
-
+            // la tipar dict
             foreach (var kvp in myCountries)
             {
                 Console.WriteLine(kvp.Key.Description + " " + kvp.Value);
             }
 
-
+            // ex Insert List
             countries.Insert(0, new Country("Ungaria", 451, Region.EuropeUnion, "EUR"));
 
             // swap
             SwapItemsByIndex<Country>(countries, 1, 3);
             SwapItemsByItems<Country>(countries, moldova, ucraina);
 
-
+            // use Enums LocationType
             moldova.AddLocation("Chisinau", LocationType.City);
             moldova.AddLocation("Orhei", LocationType.Village);
-            moldova.AddLocation("Cocieri", LocationType.City);
+            moldova.AddLocation("Cocieri", (LocationType)3);
             italia.AddLocation("Milano", LocationType.City);
             italia.AddLocation("Rimini", LocationType.City);
             italia.AddLocation("Rome", LocationType.City);
