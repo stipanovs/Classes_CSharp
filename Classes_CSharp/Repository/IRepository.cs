@@ -14,5 +14,6 @@ namespace Classes_CSharp.Repository
         void Delete(T entity);
         void Update(T entity);
         IEnumerable<T> GetAll();
+        //save
     }
 }

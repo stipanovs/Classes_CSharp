@@ -9,7 +9,7 @@ namespace Classes_CSharp.Repository
 {
     class CountryRepository : IRepository<Country>
     {
-        readonly List<Country> _countries; // db.context
+        private readonly List<Country> _countries; // DbSet
 
         public CountryRepository()
         {
