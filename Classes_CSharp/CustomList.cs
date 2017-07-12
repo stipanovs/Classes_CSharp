@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace Classes_CSharp
 {
-    public class CustomsList<T> : IEnumerable<T>
+    public class CustomList<T> : IEnumerable<T>
     {
-        private const int maxSize = 100;
+        private int _maxSize = 2;
         private int _index = 0;
         private T[] _arr;
         
-        public CustomsList()
+        public CustomList()
         {
-            _arr = new T[maxSize];
+            _arr = new T[_maxSize];
         }
 
         
         public void Add(T item)
         {
-            if (_index >= maxSize)
+            if (_index >= _maxSize)
             {
                 DoubleAraySize();
             }
@@ -32,14 +32,15 @@ namespace Classes_CSharp
 
         private void DoubleAraySize()
         {
-            int doubleSize = maxSize * 2;
+            int doubleSize = _maxSize * 2;
+            _maxSize = doubleSize;
             T[] newArr = new T[doubleSize];
 
             for(int i=0; i< _index; i++)
             {
                 newArr[i] = _arr[i];
             }
-            _arr = newArr;
+           _arr = newArr;
 
         }
 
@@ -49,7 +50,7 @@ namespace Classes_CSharp
             for (int i = _index; i >= index; i--)
             {
                 _arr[i + 1] = _arr[i];
-                
+              
             }
             _arr[index] = item;
         }
@@ -61,7 +62,7 @@ namespace Classes_CSharp
             _arr[ind2] = temp;
         }
 
-        public void SwapItemByItem<T>(T item1, T item2)
+        public void SwapItemByItem(T item1, T item2)
         {
             int index1 = -1, index2 = -1;
            
@@ -70,7 +71,7 @@ namespace Classes_CSharp
                 if (_arr[i].Equals(item1)) index1 = i;
                 if (_arr[i].Equals(item2)) index2 = i;
             }
-            if(index1 != -1 & index2 != -1) SwapItemByIndex(index1, index2);
+            if(index1 != -1 && index2 != -1) SwapItemByIndex(index1, index2);
         }
 
         public IEnumerator<T> GetEnumerator()

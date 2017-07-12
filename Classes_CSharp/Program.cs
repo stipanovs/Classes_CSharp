@@ -99,24 +99,24 @@ namespace Classes_CSharp
             // postarile de marfa
             var post1 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 14), moldova, italia, 3700.00);
             var post2 = new Posts(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), russia, moldova, 2450.00);
-            // CustomsList
+            // CustomList
             Console.WriteLine("___CustomList___");
-            CustomsList<Country> customsCountry = new CustomsList<Country>();
-            customsCountry.Add(moldova);
-            customsCountry.Add(italia);
-            customsCountry.Add(russia);
-            customsCountry.Add(ucraina);
+            CustomList<Country> customCountry = new CustomList<Country>();
+            customCountry.Add(moldova);
+            customCountry.Add(italia);
+            customCountry.Add(russia);
+            customCountry.Add(ucraina);
             
-            foreach (var c in customsCountry)
+            foreach (var c in customCountry)
             {
                 Console.WriteLine(c.Description);
             }
             Console.WriteLine("____set item at____");
-            //customsCountry.SetItemAtIndex(new Country("Franta", 457, Region.EuropeUnion, "EUR"), 1);
+            //customCountry.SetItemAtIndex(new Country("Franta", 457, Region.EuropeUnion, "EUR"), 1);
             Console.WriteLine("___swp index___");
-            //customsCountry.SwapItemByIndex(1, 3);
-            customsCountry.SwapItemByItem(moldova, ucraina);
-            foreach (var c in customsCountry)
+            //customCountry.SwapItemByIndex(1, 3);
+            customCountry.SwapItemByItem(moldova, ucraina);
+            foreach (var c in customCountry)
             {
                 Console.WriteLine(c.Description);
             }
@@ -125,7 +125,7 @@ namespace Classes_CSharp
 
 
 
-            //Country c_get = customsCountry.GetItemByIndex(1);
+            //Country c_get = customCountry.GetItemByIndex(1);
             //Console.WriteLine(" Get_item {0}", c_get);
 
 

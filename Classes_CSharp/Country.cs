@@ -12,7 +12,7 @@ namespace Classes_CSharp
     public class Country : EntityBase
     {
         readonly Region _region;
-        private Nullable<int> _population = null;   //for example 
+        private int? _population = null;   //for example 
         private readonly string _nationalCurrency;
         private readonly List<Location> _location = new List<Location>();
         public string Description { get; private set; }
@@ -29,7 +29,6 @@ namespace Classes_CSharp
         
         public void AddLocation(string description, LocationType locType)
         {
-            
             Location newLocation = new Location(description, this, locType);
             if (!_location.Contains(newLocation)) _location.Add(newLocation);
         }
@@ -48,7 +47,7 @@ namespace Classes_CSharp
         {
             return new List<Country>()
             {
-                new Country("Republica Moldova", 643, Region.EuropeUnion, "LEI"),
+                new Country("Moldova", 643, Region.EuropeUnion, "LEI"),
                 new Country("Italia", 974, Region.EuropeUnion, "EUR"),
                 new Country("Ucraina", 745, Region.EuropeUnion, "Grivna"),
                 new Country("Russia", 647, Region.CSI, "RUB"),
