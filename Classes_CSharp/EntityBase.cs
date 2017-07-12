@@ -8,6 +8,6 @@ namespace Classes_CSharp
 {
     public abstract class EntityBase
     {
-        public abstract long ID { get; protected set; }
+        public long ID { get; protected set; }
     }
 }

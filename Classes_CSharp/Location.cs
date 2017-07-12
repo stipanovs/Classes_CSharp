@@ -12,7 +12,7 @@ namespace Classes_CSharp
         private LocationType LocType { get; set; }
         private  Country Country { get;  set; }
         public  string Description { get; private set; }
-        public override long ID { get; protected set; }
+        
 
         public Location(string description, Country country, LocationType locType)
         {

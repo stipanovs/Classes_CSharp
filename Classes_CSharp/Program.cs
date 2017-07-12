@@ -33,7 +33,7 @@ namespace Classes_CSharp
         static void Main(string[] args)
         {
             List<Country> countries = Country.SetData();
-
+            
             foreach (var country in countries)
             {
                 Console.WriteLine(country.ToString());
@@ -99,7 +99,36 @@ namespace Classes_CSharp
             // postarile de marfa
             var post1 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 14), moldova, italia, 3700.00);
             var post2 = new Posts(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), russia, moldova, 2450.00);
+            // CustomsList
+            Console.WriteLine("___CustomList___");
+            CustomsList<Country> customsCountry = new CustomsList<Country>();
+            customsCountry.Add(moldova);
+            customsCountry.Add(italia);
+            customsCountry.Add(russia);
+            customsCountry.Add(ucraina);
             
+            foreach (var c in customsCountry)
+            {
+                Console.WriteLine(c.Description);
+            }
+            Console.WriteLine("____set item at____");
+            //customsCountry.SetItemAtIndex(new Country("Franta", 457, Region.EuropeUnion, "EUR"), 1);
+            Console.WriteLine("___swp index___");
+            //customsCountry.SwapItemByIndex(1, 3);
+            customsCountry.SwapItemByItem(moldova, ucraina);
+            foreach (var c in customsCountry)
+            {
+                Console.WriteLine(c.Description);
+            }
+
+            Console.WriteLine("fin");
+
+
+
+            //Country c_get = customsCountry.GetItemByIndex(1);
+            //Console.WriteLine(" Get_item {0}", c_get);
+
+
             Console.ReadLine();
         }
     }

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Country.cs" />
     <Compile Include="Comparer\CountryEqalityComparer.cs" />
+    <Compile Include="CustomList.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="Enums\LocationType.cs" />
     <Compile Include="Location.cs" />

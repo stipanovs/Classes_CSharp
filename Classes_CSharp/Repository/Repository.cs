@@ -26,10 +26,10 @@ namespace Classes_CSharp.Repository
 
         public T GetById(int id)
         {
-            return _contextList[id];
+            return _contextList.FirstOrDefault(x => x.ID == id);
         }
 
-        public void Update(T entity)
+        public void Update(T entity)// ceva nu merge
         {
             int index = _contextList.IndexOf(entity);
             _contextList[index] = entity;

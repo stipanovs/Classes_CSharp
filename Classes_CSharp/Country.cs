@@ -12,12 +12,11 @@ namespace Classes_CSharp
     public class Country : EntityBase
     {
         readonly Region _region;
-        private int? _population = null;   //for example 
+        private Nullable<int> _population = null;   //for example 
         private readonly string _nationalCurrency;
         private readonly List<Location> _location = new List<Location>();
         public string Description { get; private set; }
         public int Code { get;  private set; }
-        public override long ID { get; protected set; }
 
         public Country(string description, int code, Region region, string currency)
         {
