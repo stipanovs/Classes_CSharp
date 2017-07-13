@@ -68,6 +68,7 @@ namespace Classes_CSharp
 
             // use Enums LocationType
             moldova.AddLocation("Chisinau", LocationType.City);
+
             moldova.AddLocation("Orhei", LocationType.Village);
             moldova.AddLocation("Cocieri", (LocationType)3);
             italia.AddLocation("Milano", LocationType.City);
