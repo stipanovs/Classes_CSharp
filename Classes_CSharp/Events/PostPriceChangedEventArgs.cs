@@ -8,8 +8,9 @@ namespace Classes_CSharp.Events
 {
     public class PostPriceChangedEventArgs : EventArgs
     {
-        public readonly double LastPrice, NewPrice;
-        public readonly long ID;
+        public double LastPrice { get; private set; }
+        public double NewPrice { get; private set; }
+        public long ID { get; private set; }
 
         public PostPriceChangedEventArgs(double lastPrice, double newPrice, long id)
         {

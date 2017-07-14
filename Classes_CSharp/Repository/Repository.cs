@@ -29,7 +29,7 @@ namespace Classes_CSharp.Repository
             return _contextList.FirstOrDefault(x => x.ID == id);
         }
 
-        public void Update(T entity)// ceva nu merge
+        public void Update(T entity)
         {
             int index = _contextList.IndexOf(entity);
             _contextList[index] = entity;

@@ -15,8 +15,7 @@ namespace Classes_CSharp
         public Country CountryFrom { get; private set;}
         public Country CountryIn { get; private set; }
         public long ID { get; set; }
-        //private int _distance;
-        //private int _weight;
+        private string _currency = "eur";
         private double _price;
         public double Price
         {
@@ -26,14 +25,13 @@ namespace Classes_CSharp
                 if (_price == value)
                 {
                     return;
-                }else if(_price > value) OnPostPriceChanged(new PostPriceChangedEventArgs(Price, value, ID));
+                }
+
+                if (_price < value)
+                    OnPostPriceChanged(new PostPriceChangedEventArgs(Price, value, ID));
                 _price = value;
             }
         }
-        private string _currency = "eur";
-        //private string typeOfGoods;
-        //private string _typeOfTruck;
-        //private string _description;
 
         public Posts(DateTime fromDate, DateTime upToDate, Country countryFrom, Country countryIn, double price, long id)
         {
@@ -47,7 +45,7 @@ namespace Classes_CSharp
         }
 
         public event EventHandler<PostPriceChangedEventArgs> PostPriceChanged; // The event
-
+        
         public virtual void OnPostPriceChanged(PostPriceChangedEventArgs e) // Notify register objects
         {
             if (PostPriceChanged != null)
@@ -57,8 +55,7 @@ namespace Classes_CSharp
         }
 
         
-
-        public static void EditCurrency(ref string str)// ex ref
+        public static void EditCurrency(ref string str)// ex. ref
         {
             str = "$$ " + str.ToUpper() + " $$";
         }

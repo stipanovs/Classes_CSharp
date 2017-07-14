@@ -10,9 +10,9 @@ namespace Classes_CSharp.Users
 {
     public class User
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int Age { get; set; }
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+        public int Age { get; private set; }
         private readonly List<UserMessageBox> BoxMessages = new List<UserMessageBox>();
 
         public User(string firstName, string lastName, int age)
@@ -25,7 +25,6 @@ namespace Classes_CSharp.Users
         public void RegisterToEvent(Posts post) // method to subscribe to event : post change price
         {
             post.PostPriceChanged += InboxMessage;
-
         }
         
         public void RegisterToEventWeakMethod(Posts post) 
@@ -40,7 +39,6 @@ namespace Classes_CSharp.Users
 
         public void UnregisterToEventWeakMethod(Posts post)
         {
-            
             WeakEventManager<Posts, PostPriceChangedEventArgs>.RemoveHandler(post, "PostPriceChanged", InboxMessage);
         }
 
@@ -48,10 +46,10 @@ namespace Classes_CSharp.Users
         public void InboxMessage(object sender, PostPriceChangedEventArgs p)
         {
             string content = string.Format("Post ID: {0} price has changed. The last Price was {1}. \n" +
-                                           "Now new Price is {2}. Good Discount!!!", p.ID, p.LastPrice, p.NewPrice) ;
+                                           "   Now new Price is {2}. Good Offer!!!", p.ID, p.LastPrice, p.NewPrice) ;
             BoxMessages.Add(new UserMessageBox("System", "Post price changed!!!", content));
-            Console.WriteLine("Add new message to UserMessageBox " + "user: " + ToString());
-            Console.WriteLine("Content: " + content);
+            Console.WriteLine("Add new message to " + ToString() + "\'s UserMessageBox: ");
+            Console.WriteLine("   Content: " + content);
             Console.WriteLine();
         }
 

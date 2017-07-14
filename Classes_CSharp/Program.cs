@@ -13,10 +13,16 @@ using System.Windows;
 
 namespace Classes_CSharp
 {
-        
     
     class Program
     {
+        
+
+        public static void Foo(string hello)
+        {
+            Console.WriteLine(hello + ", World");
+        }
+        
         public static void SwapItemsByIndex<T>(List<T> list, int indexA, int indexB)
         {
             T temp = list[indexA];
@@ -78,34 +84,26 @@ namespace Classes_CSharp
             User user1 = new User("Stipanov", "Sergiu", 35);
             User user2 = new User("Maracuta", "Andrei", 27);
             
-            // subscribe to event price reduced
+            // subscribe to event price rice
             user1.RegisterToEvent(post1);
             user2.RegisterToEvent(post1);
 
-            //Register weak events by WeakEventManager
+            // Register weak events by WeakEventManager
             user1.RegisterToEventWeakMethod(post2); 
             user1.RegisterToEventWeakMethod(post3);
 
             // simulate change price
-            post1.Price = 3550.00;
-            post2.Price = 2300;
+            post1.Price = 3750;
+            post2.Price = 2550;
             Console.WriteLine();
 
             // UnregisterToEvent
             user2.UnregisterToEvent(post1);
             user1.UnregisterToEventWeakMethod(post3);
+            
+            // simulate change price
+            post1.Price = 3800;
 
-            post1.Price = 3450;
-
-            
-            // CustomList
-            
-            CustomList<Country> customCountry = new CustomList<Country>();
-            customCountry.Add(moldova);
-            customCountry.Add(italia);
-            customCountry.Add(russia);
-            customCountry.Add(ucraina);
-            
             
             // method out
             string textToPrint;
