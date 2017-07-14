@@ -40,6 +40,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <HintPath>..\packages\WindowsBase.4.6.1055.0\lib\WindowsBase.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Country.cs" />
@@ -47,7 +51,9 @@
     <Compile Include="CustomList.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="Enums\LocationType.cs" />
+    <Compile Include="Events\PostPriceChangedEventArgs.cs" />
     <Compile Include="Location.cs" />
+    <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\CargoDate.cs" />
     <Compile Include="Models\CargoLocation.cs" />
     <Compile Include="Models\CargoSpecifics.cs" />
@@ -60,9 +66,12 @@
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\LocationRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Users\User.cs" />
+    <Compile Include="Users\UserMessageBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Classes_CSharp.Events;
 
 namespace Classes_CSharp
 {
@@ -13,33 +14,59 @@ namespace Classes_CSharp
         public DateTime UpToDate { get; private set; }
         public Country CountryFrom { get; private set;}
         public Country CountryIn { get; private set; }
+        public long ID { get; set; }
         //private int _distance;
         //private int _weight;
-        public double Price { get; private set; }
-        private string _currency;
+        private double _price;
+        public double Price
+        {
+            get { return _price; }
+            set
+            {
+                if (_price == value)
+                {
+                    return;
+                }else if(_price > value) OnPostPriceChanged(new PostPriceChangedEventArgs(Price, value, ID));
+                _price = value;
+            }
+        }
+        private string _currency = "eur";
         //private string typeOfGoods;
         //private string _typeOfTruck;
         //private string _description;
 
-        public Posts(DateTime fromDate, DateTime upToDate, Country countryFrom, Country countryIn, double price)
+        public Posts(DateTime fromDate, DateTime upToDate, Country countryFrom, Country countryIn, double price, long id)
         {
             FromDate = fromDate;
             UpToDate = upToDate;
             CountryFrom = countryFrom;
             CountryIn = countryIn;
             Price = price;
-            _currency = "EUR";
+            ID = id;
+            EditCurrency(ref _currency);
         }
 
+        public event EventHandler<PostPriceChangedEventArgs> PostPriceChanged; // The event
 
-        public void PrintPost()
+        public virtual void OnPostPriceChanged(PostPriceChangedEventArgs e) // Notify register objects
         {
-            Console.WriteLine(CountryFrom.Description + "-" + CountryIn.Description + " : " + Price);
+            if (PostPriceChanged != null)
+            {
+                PostPriceChanged(this, e); // delagate invoke()
+            }
         }
+
+        
+
+        public static void EditCurrency(ref string str)// ex ref
+        {
+            str = "$$ " + str.ToUpper() + " $$";
+        }
+
 
         public override string ToString()
         {
-            return CountryFrom.Description + "-" + CountryIn.Description + " : " + Price + _currency;
+            return CountryFrom.Description + "-" + CountryIn.Description + " : " + (int)Price + " " + _currency; 
         }
     }
 }

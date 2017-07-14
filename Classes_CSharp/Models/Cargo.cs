@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Classes_CSharp.Models
 {
-    class CargoLocation<T> where T: class
+    class Cargo<T> where T: class
     {
-        public Country CountryFrom { get; private set; }
-
     }
 }

@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Classes_CSharp.Enums;
 using Classes_CSharp.Repository;
+using Classes_CSharp.Users;
+using Classes_CSharp.Events;
+using System.Windows;
 
 namespace Classes_CSharp
 {
@@ -29,39 +32,22 @@ namespace Classes_CSharp
             list[tempIndex] = temp;
         }
 
+        public static void TextCountryToPrint(out string str, Country country)
+        {
+            str = country.ToString();
+        }
+
         
         static void Main(string[] args)
         {
             List<Country> countries = Country.SetData();
             
-            foreach (var country in countries)
-            {
-                Console.WriteLine(country.ToString());
-            }
-
             var moldova = countries[0];
             var italia = countries[1];
             var ucraina = countries[2];
             var russia = countries[3];
 
-            // dictionary
-            Dictionary<Country, string> myCountries = new Dictionary<Country, string>(new CountryEqalityComparer());
-                
-            // cream dictinary din lista de tari existenta
-
-            for (int i = 0; i < countries.Count; i++)
-            {
-                myCountries[countries[i]] = "key" + i.ToString();
-            }
-            // la tipar dict
-            foreach (var kvp in myCountries)
-            {
-                Console.WriteLine(kvp.Key.Description + " " + kvp.Value);
-            }
-
-            // ex Insert List
-            countries.Insert(0, new Country("Ungaria", 451, Region.EuropeUnion, "EUR"));
-
+            
             // swap
             SwapItemsByIndex<Country>(countries, 1, 3);
             SwapItemsByItems<Country>(countries, moldova, ucraina);
@@ -74,61 +60,58 @@ namespace Classes_CSharp
             italia.AddLocation("Rimini", LocationType.City);
             italia.AddLocation("Rome", LocationType.City);
             ucraina.AddLocation("Kiev", LocationType.City);
-            
-            // ex. IEqualityComparer
-            var dict = new Dictionary<Country, string>(new CountryEqalityComparer());
-            
-            // ex. Icomparer
-            countries.Sort(new CountryComparer()); 
-
-            Console.WriteLine();
-
-            foreach (var country in countries)
-            {
-                Console.WriteLine(country.ToString());
-            }
-
-            
-            Console.WriteLine(countries[0].Description);
-
-
             var moscow = new Location("Moscow", russia, LocationType.City);
             var seliste = new Location("Seliste", moldova, LocationType.Village);
 
+            // ex. IEqualityComparer
+            var dict = new Dictionary<Country, string>(new CountryEqalityComparer());
+            // ex. Icomparer
+            countries.Sort(new CountryComparer()); 
+            
 
-            // postarile de marfa
-            var post1 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 14), moldova, italia, 3700.00);
-            var post2 = new Posts(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), russia, moldova, 2450.00);
+            // posting new information about Transport Freight 
+            var post1 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 14), moldova, italia, 3700.00, 154565435);
+            var post2 = new Posts(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), russia, moldova, 2450.00, 769898456);
+            var post3 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), italia, ucraina, 4100.00, 128978941);
+            
+            // new users 
+            User user1 = new User("Stipanov", "Sergiu", 35);
+            User user2 = new User("Maracuta", "Andrei", 27);
+            
+            // subscribe to event price reduced
+            user1.RegisterToEvent(post1);
+            user2.RegisterToEvent(post1);
+
+            //Register weak events by WeakEventManager
+            user1.RegisterToEventWeakMethod(post2); 
+            user1.RegisterToEventWeakMethod(post3);
+
+            // simulate change price
+            post1.Price = 3550.00;
+            post2.Price = 2300;
+            Console.WriteLine();
+
+            // UnregisterToEvent
+            user2.UnregisterToEvent(post1);
+            user1.UnregisterToEventWeakMethod(post3);
+
+            post1.Price = 3450;
+
+            
             // CustomList
-            Console.WriteLine("___CustomList___");
+            
             CustomList<Country> customCountry = new CustomList<Country>();
             customCountry.Add(moldova);
             customCountry.Add(italia);
             customCountry.Add(russia);
             customCountry.Add(ucraina);
             
-            foreach (var c in customCountry)
-            {
-                Console.WriteLine(c.Description);
-            }
-            Console.WriteLine("____set item at____");
-            //customCountry.SetItemAtIndex(new Country("Franta", 457, Region.EuropeUnion, "EUR"), 1);
-            Console.WriteLine("___swp index___");
-            //customCountry.SwapItemByIndex(1, 3);
-            customCountry.SwapItemByItem(moldova, ucraina);
-            foreach (var c in customCountry)
-            {
-                Console.WriteLine(c.Description);
-            }
-
-            Console.WriteLine("fin");
-
-
-
-            //Country c_get = customCountry.GetItemByIndex(1);
-            //Console.WriteLine(" Get_item {0}", c_get);
-
-
+            
+            // method out
+            string textToPrint;
+            TextCountryToPrint(out textToPrint, moldova);
+            //Console.WriteLine("textToPrint(out): " + textToPrint);
+            // method out
             Console.ReadLine();
         }
     }
