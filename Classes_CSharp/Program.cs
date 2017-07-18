@@ -16,8 +16,6 @@ namespace Classes_CSharp
     
     class Program
     {
-        
-
         public static void Foo(string hello)
         {
             Console.WriteLine(hello + ", World");
@@ -41,6 +39,11 @@ namespace Classes_CSharp
         public static void TextCountryToPrint(out string str, Country country)
         {
             str = country.ToString();
+        }
+
+        public static void ChangePostPrice(ref Posts post, double price)
+        {
+            post.Price = price;
         }
 
         
@@ -80,36 +83,47 @@ namespace Classes_CSharp
             var post2 = new Posts(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), russia, moldova, 2450.00, 769898456);
             var post3 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), italia, ucraina, 4100.00, 128978941);
             
+            //Console.WriteLine(post1);
+            //Console.WriteLine(post2);
             // new users 
             User user1 = new User("Stipanov", "Sergiu", 35);
             User user2 = new User("Maracuta", "Andrei", 27);
             
-            // subscribe to event price rice
-            user1.RegisterToEvent(post1);
-            user2.RegisterToEvent(post1);
+            //// subscribe to event price rice
+            //user1.RegisterToEvent(post1);
+            //user2.RegisterToEvent(post1);
 
-            // Register weak events by WeakEventManager
-            user1.RegisterToEventWeakMethod(post2); 
-            user1.RegisterToEventWeakMethod(post3);
+            //// Register weak events by WeakEventManager
+            //user1.RegisterToEventWeakMethod(post2); 
+            //user1.RegisterToEventWeakMethod(post3);
 
-            // simulate change price
-            post1.Price = 3750;
-            post2.Price = 2550;
-            Console.WriteLine();
+            //// simulate change price
+            //post1.Price = 3750;
+            //post2.Price = 2550;
+            //Console.WriteLine();
 
-            // UnregisterToEvent
-            user2.UnregisterToEvent(post1);
-            user1.UnregisterToEventWeakMethod(post3);
+            //// UnregisterToEvent
+            //user2.UnregisterToEvent(post1);
+            //user1.UnregisterToEventWeakMethod(post3);
             
-            // simulate change price
-            post1.Price = 3800;
+            //// simulate change price
+            //post1.Price = 3800;
 
-            
-            // method out
-            string textToPrint;
-            TextCountryToPrint(out textToPrint, moldova);
-            //Console.WriteLine("textToPrint(out): " + textToPrint);
-            // method out
+
+            CustomList<int> customList = new CustomList<int>();
+            customList.Add(45);
+            customList.Add(56);
+            customList.Add(35);
+
+            customList[1] = 457;
+            Console.WriteLine(customList[0]);
+            Console.WriteLine(customList[1]);
+            Console.WriteLine(customList[2]);
+
+            //Console.WriteLine(post3);
+            //ChangePostPrice(ref post3, 3111.00);
+            //Console.WriteLine(post3);
+
             Console.ReadLine();
         }
     }

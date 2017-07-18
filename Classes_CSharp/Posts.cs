@@ -14,9 +14,10 @@ namespace Classes_CSharp
         public DateTime UpToDate { get; private set; }
         public Country CountryFrom { get; private set;}
         public Country CountryIn { get; private set; }
-        public long ID { get; set; }
+        public long ID { get; private set; }
         private string _currency = "eur";
         private double _price;
+        public static int _copies = 0;
         public double Price
         {
             get { return _price; }
@@ -42,6 +43,7 @@ namespace Classes_CSharp
             Price = price;
             ID = id;
             EditCurrency(ref _currency);
+            _copies++;
         }
 
         public event EventHandler<PostPriceChangedEventArgs> PostPriceChanged; // The event
@@ -57,6 +59,7 @@ namespace Classes_CSharp
         
         public static void EditCurrency(ref string str)// ex. ref
         {
+           
             str = "$$ " + str.ToUpper() + " $$";
         }
 

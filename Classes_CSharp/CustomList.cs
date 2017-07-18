@@ -18,6 +18,13 @@ namespace Classes_CSharp
             _arr = new T[_maxSize];
         }
 
+        // index
+        public T this[int i]
+        {
+            get { return _arr[i]; }
+            set { _arr[i] = value; }
+        }
+
         
         public void Add(T item)
         {
