@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Classes_CSharp.Enums;
 using Classes_CSharp.Events;
+using Classes_CSharp.Models;
 
 namespace Classes_CSharp
 {
@@ -14,6 +16,7 @@ namespace Classes_CSharp
         public DateTime UpToDate { get; private set; }
         public Country CountryFrom { get; private set;}
         public Country CountryIn { get; private set; }
+        public Cargo<CargoTypes> CargoType { get; set; }
         public long ID { get; private set; }
         private string _currency = "eur";
         private double _price;
@@ -68,5 +71,9 @@ namespace Classes_CSharp
         {
             return CountryFrom.Description + "-" + CountryIn.Description + " : " + (int)Price + " " + _currency; 
         }
+    }
+
+    public class Posts1
+    {
     }
 }

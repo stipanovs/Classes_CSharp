@@ -50,6 +50,7 @@
     <Compile Include="Comparer\CountryEqalityComparer.cs" />
     <Compile Include="CustomList.cs" />
     <Compile Include="EntityBase.cs" />
+    <Compile Include="Models\CargoTypes.cs" />
     <Compile Include="Enums\LocationType.cs" />
     <Compile Include="Events\PostPriceChangedEventArgs.cs" />
     <Compile Include="Location.cs" />
@@ -71,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

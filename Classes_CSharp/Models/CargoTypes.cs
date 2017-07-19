@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Classes_CSharp.Models
+namespace Classes_CSharp.Enums
 {
-    public class Cargo<T> where T: class
+    public class CargoTypes
     {
-        private string Description;
+        public string Name { get; set; }
     }
 }
