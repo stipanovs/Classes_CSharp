@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Classes_CSharp.Repository
 {
@@ -27,6 +28,18 @@ namespace Classes_CSharp.Repository
         public T GetById(int id)
         {
             return _contextList.FirstOrDefault(x => x.ID == id);
+        }
+
+        
+        public void SaveToFile(T entity, string filename)
+        {
+            FileInfo f = new FileInfo(filename);
+            using (StreamWriter stream = f.AppendText())
+            {
+                stream.WriteLine(entity.ToString());
+            }
+            
+            
         }
 
         public void Update(T entity)

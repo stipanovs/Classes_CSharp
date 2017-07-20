@@ -21,20 +21,7 @@ namespace Classes_CSharp
             Console.WriteLine(hello + ", World");
         }
         
-        public static void SwapItemsByIndex<T>(List<T> list, int indexA, int indexB)
-        {
-            T temp = list[indexA];
-            list[indexA] = list[indexB];
-            list[indexB] = temp;
-        }
-
-        public static void SwapItemsByItems<T>(List<T> list, T item1, T item2)
-        {
-            T temp = item1;
-            int tempIndex = list.IndexOf(item2);
-            list[list.IndexOf(item1)] = item2;
-            list[tempIndex] = temp;
-        }
+        
 
         public static void TextCountryToPrint(out string str, Country country)
         {
@@ -57,10 +44,7 @@ namespace Classes_CSharp
             var russia = countries[3];
 
             
-            // swap
-            SwapItemsByIndex<Country>(countries, 1, 3);
-            SwapItemsByItems<Country>(countries, moldova, ucraina);
-
+            
             // use Enums LocationType
             moldova.AddLocation("Chisinau", LocationType.City);
             moldova.AddLocation("Orhei", LocationType.Village);
@@ -110,20 +94,17 @@ namespace Classes_CSharp
             //post1.Price = 3800;
 
 
-            CustomList<int> customList = new CustomList<int>();
-            customList.Add(45);
-            customList.Add(56);
-            customList.Add(35);
+            
 
-            customList[1] = 457;
-            Console.WriteLine(customList[0]);
-            Console.WriteLine(customList[1]);
-            Console.WriteLine(customList[2]);
+            // save countries to file
+            string fileName= @"C:\Users\sergiu.stipanov\OneDrive\Materiale\files\Repository.txt";
+            Repository<Country> repository = new Repository<Country>();
 
-            //Console.WriteLine(post3);
-            //ChangePostPrice(ref post3, 3111.00);
-            //Console.WriteLine(post3);
-
+            foreach (var c in countries)
+            {
+                repository.SaveToFile(c, fileName);
+            }
+            
             Console.ReadLine();
         }
     }

@@ -15,5 +15,6 @@ namespace Classes_CSharp.Repository
         void Update(T entity);
         IEnumerable<T> GetAll();
         //save
+        void SaveToFile(T entity, string filename);
     }
 }
