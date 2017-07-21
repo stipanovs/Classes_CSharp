@@ -43,12 +43,10 @@ namespace Classes_CSharp
             var ucraina = countries[2];
             var russia = countries[3];
 
-            
-            
-            // use Enums LocationType
+           // use Enums LocationType
             moldova.AddLocation("Chisinau", LocationType.City);
             moldova.AddLocation("Orhei", LocationType.Village);
-            moldova.AddLocation("Cocieri", (LocationType)3);
+            moldova.AddLocation("Dumbrava", (LocationType)3);
             italia.AddLocation("Milano", LocationType.City);
             italia.AddLocation("Rimini", LocationType.City);
             italia.AddLocation("Rome", LocationType.City);

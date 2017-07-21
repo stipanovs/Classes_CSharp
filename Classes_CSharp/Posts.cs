@@ -49,6 +49,11 @@ namespace Classes_CSharp
             _copies++;
         }
 
+        public Posts()
+        {
+            
+        }
+
         public event EventHandler<PostPriceChangedEventArgs> PostPriceChanged; // The event
         
         public virtual void OnPostPriceChanged(PostPriceChangedEventArgs e) // Notify register objects
@@ -59,6 +64,10 @@ namespace Classes_CSharp
             }
         }
 
+        public Posts CreatePost()
+        {
+            return new Posts();
+        }
         
         public static void EditCurrency(ref string str)// ex. ref
         {

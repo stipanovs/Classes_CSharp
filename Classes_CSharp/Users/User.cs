@@ -13,6 +13,8 @@ namespace Classes_CSharp.Users
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public int Age { get; private set; }
+        public bool _bloked = false;
+
         private readonly List<UserMessageBox> BoxMessages = new List<UserMessageBox>();
 
         public User(string firstName, string lastName, int age)
@@ -20,6 +22,11 @@ namespace Classes_CSharp.Users
             FirstName = firstName;
             LastName = lastName;
             Age = age;
+        }
+
+        public User()
+        {
+            
         }
 
         public void RegisterToEvent(Posts post) // method to subscribe to event : post change price

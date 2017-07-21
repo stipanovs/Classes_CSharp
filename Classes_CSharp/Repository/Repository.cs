@@ -34,9 +34,11 @@ namespace Classes_CSharp.Repository
         public void SaveToFile(T entity, string filename)
         {
             FileInfo f = new FileInfo(filename);
+           
             using (StreamWriter stream = f.AppendText())
             {
                 stream.WriteLine(entity.ToString());
+                stream.Close();
             }
             
             
