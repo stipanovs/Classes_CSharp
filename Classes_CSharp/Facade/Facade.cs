@@ -16,7 +16,6 @@ namespace Classes_CSharp.Facade
         {
             _user = new User();
             _post = new Posts();
-            
         }
 
         public bool IsUserEligibleToPost()
@@ -29,5 +28,19 @@ namespace Classes_CSharp.Facade
             return userCanPost ? _post.CreatePost() : null;
         }
 
+        public void RegisterUser()
+        {
+            //logic
+        }
+
+        public void FindTransport()
+        {
+            //logic
+        }
+
+        public void FindCargo()
+        {
+            //logic
+        }
     }
 }

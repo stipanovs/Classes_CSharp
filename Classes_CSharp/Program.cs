@@ -22,7 +22,6 @@ namespace Classes_CSharp
         }
         
         
-
         public static void TextCountryToPrint(out string str, Country country)
         {
             str = country.ToString();
@@ -90,8 +89,6 @@ namespace Classes_CSharp
             
             //// simulate change price
             //post1.Price = 3800;
-
-
             
 
             // save countries to file

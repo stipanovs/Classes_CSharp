@@ -49,7 +49,7 @@
     <Compile Include="Country.cs" />
     <Compile Include="Comparer\CountryEqalityComparer.cs" />
     <Compile Include="CustomList.cs" />
-    <Compile Include="EntityBase.cs" />
+    <Compile Include="Repository\EntityBase.cs" />
     <Compile Include="Facade\Facade.cs" />
     <Compile Include="Models\CargoTypes.cs" />
     <Compile Include="Enums\LocationType.cs" />
