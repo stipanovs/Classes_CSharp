@@ -46,24 +46,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Country.cs" />
+    <Compile Include="DataLocation\City.cs" />
+    <Compile Include="DataLocation\Country.cs" />
     <Compile Include="Comparer\CountryEqalityComparer.cs" />
     <Compile Include="CustomList.cs" />
+    <Compile Include="DataLocation\IUnitLocality.cs" />
+    <Compile Include="DataLocation\Village.cs" />
+    <Compile Include="PostsModel\IPostType.cs" />
+    <Compile Include="PostsModel\PostCargo.cs" />
+    <Compile Include="PostsModel\PostTransport.cs" />
     <Compile Include="Repository\EntityBase.cs" />
     <Compile Include="Facade\FacadeClass.cs" />
     <Compile Include="Models\CargoTypes.cs" />
-    <Compile Include="Enums\LocationType.cs" />
     <Compile Include="Events\PostPriceChangedEventArgs.cs" />
-    <Compile Include="Location.cs" />
+    <Compile Include="DataLocation\Location.cs" />
     <Compile Include="Models\Cargo.cs" />
-    <Compile Include="Models\CargoDate.cs" />
-    <Compile Include="Models\CargoLocation.cs" />
-    <Compile Include="Models\CargoSpecifics.cs" />
-    <Compile Include="Posts.cs" />
+    <Compile Include="PostsModel\Post.cs" />
     <Compile Include="Comparer\CountryComparer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Enums\Region.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Users\User.cs" />
@@ -74,6 +75,8 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Enums\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

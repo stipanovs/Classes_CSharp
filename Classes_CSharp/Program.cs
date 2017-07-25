@@ -5,11 +5,14 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Classes_CSharp.DataLocation;
 using Classes_CSharp.Enums;
 using Classes_CSharp.Repository;
 using Classes_CSharp.Users;
 using Classes_CSharp.Events;
 using Classes_CSharp.Facade;
+using Classes_CSharp.PostsModel;
+
 namespace Classes_CSharp
 {
     
@@ -26,7 +29,7 @@ namespace Classes_CSharp
             str = country.ToString();
         }
 
-        public static void ChangePostPrice(ref Posts post, double price)
+        public static void ChangePostPrice(ref Post post, double price)
         {
             post.Price = price;
         }
@@ -35,22 +38,18 @@ namespace Classes_CSharp
         static void Main(string[] args)
         {
            
-            
-            var moldova = new Country("Moldova", 373, Region.EuropeUnion, "LEI");
-            var italia = new Country("Italia", 040, Region.EuropeUnion, "EUR");
-            var ucraina = new Country("Ucraina", 854, Region.EuropeUnion, "UAH");
-            var russia = new Country("Russia", 643, Region.EuropeUnion, "RUB");
-
+            var moldova = new Country("Moldova", 373, "LEI");
+            var italia = new Country("Italia", 040, "EUR");
+            var ucraina = new Country("Ucraina", 854, "UAH");
+            var russia = new Country("Russia", 643, "RUB");
             var countries = new List<Country>(){moldova, italia, ucraina, russia};
 
-
-            // use Enums LocationType
             
-            
-            Location loc1_chisinau = new Location(moldova, "Chisinau, str Titulescu 10/4", LocationType.City);
-            Location loc2_moscow = new Location(russia, "Moscow, str naberejnaia 45/5", LocationType.City);
-            Location loc3_Rome = new Location(italia, "Rome, str Cesar ", LocationType.City);
-            Location loc4_Kiev = new Location(ucraina, "Kiev, str Esenin 45/6", LocationType.City);
+            Location loc1_chisinau = new Location(moldova, new City("Chisinau"),"str. Titulescu 10/4 ap 61");
+            Location loc_Bardar = new Location(moldova, new Village("Bardar"), "nu sunt strazi" );
+            Location loc2_moscow = new Location(russia, new City("Moscow"), "adress detail");
+            Location loc3_Rome = new Location(italia, new Village("Padovana"), "adress detail");
+            Location loc4_Kiev = new Location(ucraina, new City("Kiev"), "adress detail");
 
             
 
@@ -62,10 +61,16 @@ namespace Classes_CSharp
             
 
             // posting new information about Transport Freight 
-            var post1 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 14), loc1_chisinau, loc2_moscow, 3700.00, 154565435);
-            var post2 = new Posts(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), loc2_moscow, loc3_Rome, 2450.00, 769898456);
-            var post3 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), loc4_Kiev, loc1_chisinau, 4100.00, 128978941);
+            var post1 = new PostCargo();
+            var post2 = new Post(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), loc2_moscow, loc3_Rome, 2450.00, 769898456);
+            var post3 = new Post(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), loc4_Kiev, loc1_chisinau, 4100.00, 128978941);
+
+            IPostType post4 = new PostCargo();
+          
             
+            post1.AddToRepository(post1);
+            post1.AddToRepository(post2);
+            post3.AddToRepository(post3);
             //Console.WriteLine(post1);
             //Console.WriteLine(post2);
             // new users 
@@ -95,19 +100,21 @@ namespace Classes_CSharp
 
             // save countries to file
             string fileName= @"C:\Users\sergiu.stipanov\OneDrive\Materiale\files\Repository.txt";
-            Repository<Country> repository = new Repository<Country>();
+            Repository<Country> countryRepository = new Repository<Country>();
 
             foreach (var c in countries)
             {
-                repository.SaveToFile(c, fileName);
+                countryRepository.SaveToFile(c, fileName);
             }
 
             FacadeClass facade1 = FacadeClass.Instance;
             FacadeClass facade2 = FacadeClass.Instance;
+            
+            
 
             facade1.CreatePost(true, post1);
 
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }

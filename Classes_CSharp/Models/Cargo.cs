@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Classes_CSharp.Models
 {
-    public class Cargo<T> where T: class
+    public interface ICargoType
     {
-        private string Description;
+        //private string Description;
     }
 }

@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Classes_CSharp.DataLocation;
 using Classes_CSharp.Enums;
 
 namespace Classes_CSharp
 {
     public class Location : EntityBase
     {
-        private LocationType LocType { get; set; }
-        private  Country Country { get;  set; }
-        public  string Description { get;  set; }
-
+        public  Country Country { get;  set; }
+        public IUnitLocality UnitLocality { get; set; }
+        public string AddressDetail { get; set; }
         public readonly List<Location> _locations = new List<Location>();
         
-
-        public Location(Country country, string description, LocationType locType)
+        public Location(Country country, IUnitLocality unitLocality, string addressDetail)
         {
             Country = country;
-            Description = description;
-            LocType = locType;
+            UnitLocality = unitLocality;
+            AddressDetail = addressDetail;
             AddToLocationList(this);
         }
 
@@ -35,7 +34,5 @@ namespace Classes_CSharp
                 _locations.Add(location);
             }
         }
-
-        
     }
 }

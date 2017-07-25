@@ -14,7 +14,7 @@ namespace Classes_CSharp.Users
         public string LastName { get; private set; }
         public int Age { get; private set; }
         public bool _bloked = false;
-        public readonly List<Posts> _userPosts = new List<Posts>();
+        public readonly List<Post> _userPosts = new List<Post>();
 
         private readonly List<UserMessageBox> BoxMessages = new List<UserMessageBox>();
 
@@ -30,32 +30,32 @@ namespace Classes_CSharp.Users
             
         }
 
-        public void RegisterToEvent(Posts post) // method to subscribe to event : post change price
+        public void RegisterToEvent(Post post) // method to subscribe to event : post change price
         {
             post.PostPriceChanged += InboxMessage;
         }
         
-        public void RegisterToEventWeakMethod(Posts post) 
+        public void RegisterToEventWeakMethod(Post post) 
         {
-            WeakEventManager<Posts, PostPriceChangedEventArgs>.AddHandler(post, "PostPriceChanged", InboxMessage);
+            WeakEventManager<Post, PostPriceChangedEventArgs>.AddHandler(post, "PostPriceChanged", InboxMessage);
         }
 
-        public void UnregisterToEvent(Posts post)
+        public void UnregisterToEvent(Post post)
         {
             post.PostPriceChanged -= InboxMessage;
         }
 
-        public void UnregisterToEventWeakMethod(Posts post)
+        public void UnregisterToEventWeakMethod(Post post)
         {
-            WeakEventManager<Posts, PostPriceChangedEventArgs>.RemoveHandler(post, "PostPriceChanged", InboxMessage);
+            WeakEventManager<Post, PostPriceChangedEventArgs>.RemoveHandler(post, "PostPriceChanged", InboxMessage);
         }
 
-        public void UserAddPost(Posts post)
+        public void UserAddPost(Post post)
         {
             _userPosts.Add(post);
         }
 
-        public void UserDeletePost(Posts post)
+        public void UserDeletePost(Post post)
         {
             _userPosts.Remove(post);
         }

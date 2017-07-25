@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Classes_CSharp.Models
+namespace Classes_CSharp.PostsModel
 {
-    class CargoSpecifics
+    public class PostTransport : Post, IPostType
     {
     }
 }

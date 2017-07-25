@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Classes_CSharp.Enums
+namespace Classes_CSharp.DataLocation
 {
-    public enum LocationType
+    public interface IUnitLocality
     {
-        City = 1,
-        Town,
-        Village,
-        Commune
+        string Name { get; set; }
     }
 }

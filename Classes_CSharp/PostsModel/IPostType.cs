@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Classes_CSharp.Models
+namespace Classes_CSharp
 {
-    class CargoLocation<T> where T: class
+    interface IPostType
     {
-        public Country CountryFrom { get; private set; }
-
     }
 }

@@ -7,22 +7,20 @@ using Classes_CSharp.Enums;
 using Classes_CSharp.Events;
 using Classes_CSharp.Models;
 using Classes_CSharp.Repository;
+using Classes_CSharp.Users;
 
 namespace Classes_CSharp
 {
-    public class Posts : EntityBase
+    public class Post : EntityBase
     {
+        public User _user;
         private readonly DateTime _publicationDate = DateTime.Now;
         public DateTime DateFrom { get; private set; }
         public DateTime DateTo { get; private set; }
         public Location LocationFrom { get; } 
         public Location LocationTo { get; }
-        public Cargo<CargoTypes> CargoType { get; set; }
-        public long ID { get; private set; }
-        private string _currency = "eur";
         private double _price;
-        public static int _copies = 0;
-        public readonly Repository<Posts> _allPosts = new Repository<Posts>();
+        public readonly Repository<Post> _allPosts = new Repository<Post>();
         public double Price
         {
             get { return _price; }
@@ -39,7 +37,7 @@ namespace Classes_CSharp
             }
         }
 
-        public Posts(DateTime dataFrom, DateTime dateTo, Location locationFrom, Location locationTo,  double price, long id)
+        public Post(DateTime dataFrom, DateTime dateTo, Location locationFrom, Location locationTo,  double price, long id)
         {
             DateFrom = dataFrom;
             DateTo = dateTo;
@@ -47,48 +45,27 @@ namespace Classes_CSharp
             LocationTo = locationTo;
             Price = price;
             ID = id;
-            EditCurrency(ref _currency);
-            _copies++;
-            //AddToRepository(this);
-
-
         }
 
-        public Posts()
+        public Post()
         {
             
         }
 
         public event EventHandler<PostPriceChangedEventArgs> PostPriceChanged; // The event
-        
-        public virtual void OnPostPriceChanged(PostPriceChangedEventArgs e) // Notify register objects
+        public void OnPostPriceChanged(PostPriceChangedEventArgs e) // Notify register objects
         {
             if (PostPriceChanged != null)
             {
                 PostPriceChanged(this, e); // delagate invoke()
             }
         }
-
-        public Posts CreatePost()
+        
+        public void AddToRepository(Post post)
         {
-            return new Posts();
-        }
-
-        public void AddToRepository(Posts post)
-        {
-           _allPosts.Create(post);
+            var allpost = _allPosts.GetAll();
+            if (allpost != null && allpost.Contains(post)) _allPosts.Create(post);
         }
         
-        public static void EditCurrency(ref string str)// ex. ref
-        {
-           
-            str = "$$ " + str.ToUpper() + " $$";
-        }
-
-        
-    }
-
-    public class Posts1
-    {
     }
 }
