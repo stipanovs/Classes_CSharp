@@ -9,7 +9,7 @@ namespace Classes_CSharp.Repository
 {
     public interface IRepository<T> where T: EntityBase
     {
-        T GetById(int id);
+        T GetById(long id);
         void Create(T entity);
         void Delete(T entity);
         void Update(T entity);

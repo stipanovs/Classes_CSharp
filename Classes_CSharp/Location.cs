@@ -11,27 +11,28 @@ namespace Classes_CSharp
     {
         private LocationType LocType { get; set; }
         private  Country Country { get;  set; }
-        public  string Description { get; private set; }
+        public  string Description { get;  set; }
+
+        public readonly List<Location> _locations = new List<Location>();
         
 
-        public Location(string description, Country country, LocationType locType)
+        public Location(Country country, string description, LocationType locType)
         {
-
-            Description = description;
             Country = country;
+            Description = description;
             LocType = locType;
-            AddToCountryList(country, this);
+            AddToLocationList(this);
         }
 
-        public void AddToCountryList(Country country, Location loc)
+        public void AddToLocationList(Location location)
         {
-            if (country.GetAllLocations().Contains(loc))
+            if (_locations.Contains(location))
             {
                 Console.WriteLine("There are this Locations in list");
             }
             else
             {
-                country.GetAllLocations().Add(loc);
+                _locations.Add(location);
             }
         }
 

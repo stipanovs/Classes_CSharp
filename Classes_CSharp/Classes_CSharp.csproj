@@ -50,7 +50,7 @@
     <Compile Include="Comparer\CountryEqalityComparer.cs" />
     <Compile Include="CustomList.cs" />
     <Compile Include="Repository\EntityBase.cs" />
-    <Compile Include="Facade\Facade.cs" />
+    <Compile Include="Facade\FacadeClass.cs" />
     <Compile Include="Models\CargoTypes.cs" />
     <Compile Include="Enums\LocationType.cs" />
     <Compile Include="Events\PostPriceChangedEventArgs.cs" />

@@ -6,21 +6,23 @@ using System.Threading.Tasks;
 using Classes_CSharp.Enums;
 using Classes_CSharp.Events;
 using Classes_CSharp.Models;
+using Classes_CSharp.Repository;
 
 namespace Classes_CSharp
 {
-    public class Posts
+    public class Posts : EntityBase
     {
-        private readonly DateTime _dataPublication = DateTime.Now;
-        public DateTime FromDate { get; private set; }
-        public DateTime UpToDate { get; private set; }
-        public Country CountryFrom { get; private set;}
-        public Country CountryIn { get; private set; }
+        private readonly DateTime _publicationDate = DateTime.Now;
+        public DateTime DateFrom { get; private set; }
+        public DateTime DateTo { get; private set; }
+        public Location LocationFrom { get; } 
+        public Location LocationTo { get; }
         public Cargo<CargoTypes> CargoType { get; set; }
         public long ID { get; private set; }
         private string _currency = "eur";
         private double _price;
         public static int _copies = 0;
+        public readonly Repository<Posts> _allPosts = new Repository<Posts>();
         public double Price
         {
             get { return _price; }
@@ -37,16 +39,19 @@ namespace Classes_CSharp
             }
         }
 
-        public Posts(DateTime fromDate, DateTime upToDate, Country countryFrom, Country countryIn, double price, long id)
+        public Posts(DateTime dataFrom, DateTime dateTo, Location locationFrom, Location locationTo,  double price, long id)
         {
-            FromDate = fromDate;
-            UpToDate = upToDate;
-            CountryFrom = countryFrom;
-            CountryIn = countryIn;
+            DateFrom = dataFrom;
+            DateTo = dateTo;
+            LocationFrom = locationFrom;
+            LocationTo = locationTo;
             Price = price;
             ID = id;
             EditCurrency(ref _currency);
             _copies++;
+            //AddToRepository(this);
+
+
         }
 
         public Posts()
@@ -68,6 +73,11 @@ namespace Classes_CSharp
         {
             return new Posts();
         }
+
+        public void AddToRepository(Posts post)
+        {
+           _allPosts.Create(post);
+        }
         
         public static void EditCurrency(ref string str)// ex. ref
         {
@@ -75,11 +85,7 @@ namespace Classes_CSharp
             str = "$$ " + str.ToUpper() + " $$";
         }
 
-
-        public override string ToString()
-        {
-            return CountryFrom.Description + "-" + CountryIn.Description + " : " + (int)Price + " " + _currency; 
-        }
+        
     }
 
     public class Posts1

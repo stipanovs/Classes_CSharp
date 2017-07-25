@@ -11,7 +11,7 @@ namespace Classes_CSharp
         public int Compare(Country x, Country y)
         {
             if (Equals(x, y)) return 0;
-            return x.Code.CompareTo(y.Code);
+            return x.CountryCode.CompareTo(y.CountryCode);
         }
         
     }

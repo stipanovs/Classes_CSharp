@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Classes_CSharp.Repository
 {
-    class Repository<T> : IRepository<T> where T : EntityBase
+    public class Repository<T> : IRepository<T> where T : EntityBase
     {
         private readonly List<T> _contextList; // DbSet
         public void Create(T entity)
@@ -25,9 +25,9 @@ namespace Classes_CSharp.Repository
             return _contextList;
         }
 
-        public T GetById(int id)
+        public T GetById(long ID)
         {
-            return _contextList.FirstOrDefault(x => x.ID == id);
+            return _contextList.FirstOrDefault(x => x.ID == ID);
         }
 
         
@@ -40,8 +40,6 @@ namespace Classes_CSharp.Repository
                 stream.WriteLine(entity.ToString());
                 stream.Close();
             }
-            
-            
         }
 
         public void Update(T entity)

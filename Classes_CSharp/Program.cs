@@ -9,8 +9,7 @@ using Classes_CSharp.Enums;
 using Classes_CSharp.Repository;
 using Classes_CSharp.Users;
 using Classes_CSharp.Events;
-using System.Windows;
-
+using Classes_CSharp.Facade;
 namespace Classes_CSharp
 {
     
@@ -35,23 +34,26 @@ namespace Classes_CSharp
         
         static void Main(string[] args)
         {
-            List<Country> countries = Country.SetData();
+           
             
-            var moldova = countries[0];
-            var italia = countries[1];
-            var ucraina = countries[2];
-            var russia = countries[3];
+            var moldova = new Country("Moldova", 373, Region.EuropeUnion, "LEI");
+            var italia = new Country("Italia", 040, Region.EuropeUnion, "EUR");
+            var ucraina = new Country("Ucraina", 854, Region.EuropeUnion, "UAH");
+            var russia = new Country("Russia", 643, Region.EuropeUnion, "RUB");
 
-           // use Enums LocationType
-            moldova.AddLocation("Chisinau", LocationType.City);
-            moldova.AddLocation("Orhei", LocationType.Village);
-            moldova.AddLocation("Dumbrava", (LocationType)3);
-            italia.AddLocation("Milano", LocationType.City);
-            italia.AddLocation("Rimini", LocationType.City);
-            italia.AddLocation("Rome", LocationType.City);
-            ucraina.AddLocation("Kiev", LocationType.City);
-            var moscow = new Location("Moscow", russia, LocationType.City);
-            var seliste = new Location("Seliste", moldova, LocationType.Village);
+            var countries = new List<Country>(){moldova, italia, ucraina, russia};
+
+
+            // use Enums LocationType
+            
+            
+            Location loc1_chisinau = new Location(moldova, "Chisinau, str Titulescu 10/4", LocationType.City);
+            Location loc2_moscow = new Location(russia, "Moscow, str naberejnaia 45/5", LocationType.City);
+            Location loc3_Rome = new Location(italia, "Rome, str Cesar ", LocationType.City);
+            Location loc4_Kiev = new Location(ucraina, "Kiev, str Esenin 45/6", LocationType.City);
+
+            
+
 
             // ex. IEqualityComparer
             var dict = new Dictionary<Country, string>(new CountryEqalityComparer());
@@ -60,9 +62,9 @@ namespace Classes_CSharp
             
 
             // posting new information about Transport Freight 
-            var post1 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 14), moldova, italia, 3700.00, 154565435);
-            var post2 = new Posts(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), russia, moldova, 2450.00, 769898456);
-            var post3 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), italia, ucraina, 4100.00, 128978941);
+            var post1 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 14), loc1_chisinau, loc2_moscow, 3700.00, 154565435);
+            var post2 = new Posts(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), loc2_moscow, loc3_Rome, 2450.00, 769898456);
+            var post3 = new Posts(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), loc4_Kiev, loc1_chisinau, 4100.00, 128978941);
             
             //Console.WriteLine(post1);
             //Console.WriteLine(post2);
@@ -99,7 +101,12 @@ namespace Classes_CSharp
             {
                 repository.SaveToFile(c, fileName);
             }
-            
+
+            FacadeClass facade1 = FacadeClass.Instance;
+            FacadeClass facade2 = FacadeClass.Instance;
+
+            facade1.CreatePost(true, post1);
+
             Console.ReadLine();
         }
     }

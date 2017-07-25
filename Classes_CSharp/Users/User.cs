@@ -14,6 +14,7 @@ namespace Classes_CSharp.Users
         public string LastName { get; private set; }
         public int Age { get; private set; }
         public bool _bloked = false;
+        public readonly List<Posts> _userPosts = new List<Posts>();
 
         private readonly List<UserMessageBox> BoxMessages = new List<UserMessageBox>();
 
@@ -47,6 +48,16 @@ namespace Classes_CSharp.Users
         public void UnregisterToEventWeakMethod(Posts post)
         {
             WeakEventManager<Posts, PostPriceChangedEventArgs>.RemoveHandler(post, "PostPriceChanged", InboxMessage);
+        }
+
+        public void UserAddPost(Posts post)
+        {
+            _userPosts.Add(post);
+        }
+
+        public void UserDeletePost(Posts post)
+        {
+            _userPosts.Remove(post);
         }
 
 
