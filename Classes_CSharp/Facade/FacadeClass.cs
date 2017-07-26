@@ -35,7 +35,7 @@ namespace Classes_CSharp.Facade
             if (IsUserEligibleToPost()) _user.UserAddPost(post);
         }
 
-        public void DeletePost(Post post)
+        public void RemovePost(Post post)
         {
             _user.UserDeletePost(post);
         }
@@ -45,7 +45,6 @@ namespace Classes_CSharp.Facade
             var allpost = _repositoryPosts.GetAll();
             return allpost
                 .Where(p => p.LocationFrom.Country == fromCountry && p.LocationTo.Country == toCountry);
-           
         }
 
         public IEnumerable<Post> FindAllCargoFrom(Country fromCountry, Country toCountry)

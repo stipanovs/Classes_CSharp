@@ -8,5 +8,6 @@ namespace Classes_CSharp
 {
     interface IPostType
     {
+
     }
 }

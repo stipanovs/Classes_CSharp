@@ -12,77 +12,96 @@ using Classes_CSharp.Users;
 using Classes_CSharp.Events;
 using Classes_CSharp.Facade;
 using Classes_CSharp.PostsModel;
+using IronPython.Hosting;
+using static System.Console;
+
 
 namespace Classes_CSharp
 {
-    
-    class Program
+   class Program
     {
-        public static void Foo(string hello)
-        {
-            Console.WriteLine(hello + ", World");
-        }
-        
-        
-        public static void TextCountryToPrint(out string str, Country country)
-        {
-            str = country.ToString();
-        }
-
-        public static void ChangePostPrice(ref Post post, double price)
-        {
-            post.Price = price;
-        }
-
-        
+       
         static void Main(string[] args)
         {
-           
+            #region countries
+
             var moldova = new Country("Moldova", 373, "LEI");
             var italia = new Country("Italia", 040, "EUR");
             var ucraina = new Country("Ucraina", 854, "UAH");
             var russia = new Country("Russia", 643, "RUB");
-            var countries = new List<Country>(){moldova, italia, ucraina, russia};
-
+            var countries = new List<Country>() { moldova, italia, ucraina, russia };
             
-            Location loc1_chisinau = new Location(moldova, new City("Chisinau"),"str. Titulescu 10/4 ap 61");
-            Location loc_Bardar = new Location(moldova, new Village("Bardar"), "nu sunt strazi" );
-            Location loc2_moscow = new Location(russia, new City("Moscow"), "adress detail");
-            Location loc3_Rome = new Location(italia, new Village("Padovana"), "adress detail");
-            Location loc4_Kiev = new Location(ucraina, new City("Kiev"), "adress detail");
-
+            #endregion
             
 
+            Location locChisinau = new Location(moldova, new City("Chisinau"),"str. Titulescu 10/4 ap 61");
+            Location locBardar = new Location(moldova, new Village("Bardar"), "nu sunt strazi" );
+            Location locMoscow = new Location(russia, new City("Moscow"));
+            Location locRome = new Location(italia, new Village("Padovana"));
+            Location locKiev = new Location(country: ucraina, unitLocality: new City("Kiev"));
 
-            // ex. IEqualityComparer
-            var dict = new Dictionary<Country, string>(new CountryEqalityComparer());
-            // ex. Icomparer
-            countries.Sort(new CountryComparer()); 
+            #region Dynamic
+
+            //var PythonRuntime = Python.CreateRuntime();
+            //dynamic pythonFile = PythonRuntime.UseFile("Test.py");
+            //dynamic resultFromPythonTest = pythonFile.SummNumbersInRange(50);
+            //Console.WriteLine(resultFromPythonTest);
             
+            //// import Countries from Python file
+            //dynamic countryList = pythonFile.country_list;
+
+            //for (int i = 0; i < countryList.Count; i++)
+            //{
+            //    countries.Add(new Country(countryList[i].name, countryList[i].code));
+            //}
+
+            //foreach (var c in countries)
+            //{
+            //   WriteLine(c.Name);
+            //}
+
+            //Console.ReadKey();
+
+            #endregion
+
+            #region NameOf
+
+            
+            #endregion
+
+            #region Comparer
+
+            //// ex. IEqualityComparer
+            //var dict = new Dictionary<Country, string>(new CountryEqalityComparer());
+            //// ex. Icomparer
+            //countries.Sort(new CountryComparer());
+
+
+            #endregion
 
             // posting new information about Transport Freight 
-            var post1 = new PostCargo();
-            var post2 = new Post(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), loc2_moscow, loc3_Rome, 2450.00, 769898456);
-            var post3 = new Post(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), loc4_Kiev, loc1_chisinau, 4100.00, 128978941);
-
-            IPostType post4 = new PostCargo();
+            var post1 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 2450.00, 769898456);
+            var post2 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 3875.00, 769898456);
+            var post3 = new PostTransport(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), locKiev, locChisinau, 4100.00, 128978941);
+            IPostType post4 = new PostCargo(new DateTime(2017, 7, 14), new DateTime(2017, 7, 12), locKiev, locBardar, 3800.00, 128978941);
           
-            
             post1.AddToRepository(post1);
             post1.AddToRepository(post2);
             post3.AddToRepository(post3);
-            //Console.WriteLine(post1);
-            //Console.WriteLine(post2);
-            // new users 
-            User user1 = new User("Stipanov", "Sergiu", 35);
-            User user2 = new User("Maracuta", "Andrei", 27);
-            
+
+            #region EVENTS
+
+            //// new users 
+
+            //User user1 = new User("Stipanov", "Sergiu", 35);
+            //User user2 = new User("Maracuta", "Andrei", 27);
+
             //// subscribe to event price rice
             //user1.RegisterToEvent(post1);
             //user2.RegisterToEvent(post1);
 
             //// Register weak events by WeakEventManager
-            //user1.RegisterToEventWeakMethod(post2); 
+            //user1.RegisterToEventWeakMethod(post2);
             //user1.RegisterToEventWeakMethod(post3);
 
             //// simulate change price
@@ -93,28 +112,39 @@ namespace Classes_CSharp
             //// UnregisterToEvent
             //user2.UnregisterToEvent(post1);
             //user1.UnregisterToEventWeakMethod(post3);
-            
+
             //// simulate change price
             //post1.Price = 3800;
+
+            #endregion
             
+            #region Stream
+            ////save countries to file
+            //string fileName = @"C:\Users\sergiu.stipanov\OneDrive\Materiale\files\Repository.txt";
+            //Repository<Country> countryRepository = new Repository<Country>();
 
-            // save countries to file
-            string fileName= @"C:\Users\sergiu.stipanov\OneDrive\Materiale\files\Repository.txt";
-            Repository<Country> countryRepository = new Repository<Country>();
-
-            foreach (var c in countries)
-            {
-                countryRepository.SaveToFile(c, fileName);
-            }
-
+            //foreach (var c in countries)
+            //{
+            //    countryRepository.SaveToFile(c, fileName);
+            //}
+            #endregion
+            
             FacadeClass facade1 = FacadeClass.Instance;
-            FacadeClass facade2 = FacadeClass.Instance;
-            
-            
-
             facade1.CreatePost(true, post1);
 
-            //Console.ReadLine();
+            // tuple
+            (string Alpha, string Beta, string Teta) namedLetters = ("a", "b", "c");
+
+            #region FACTORY
+
+            PostFactory postFactory = new PostFactory();
+            var newPost = postFactory.CreateNewPost(new DateTime(2017, 07, 25), new DateTime(2017, 08, 05), locChisinau,
+                locMoscow, 4750.00, 154568);
+            Console.WriteLine(newPost.Description);
+
+            #endregion
+
+            Console.ReadKey();
         }
     }
 }

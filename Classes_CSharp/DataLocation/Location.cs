@@ -13,9 +13,12 @@ namespace Classes_CSharp
         public  Country Country { get;  set; }
         public IUnitLocality UnitLocality { get; set; }
         public string AddressDetail { get; set; }
+
+        public string FullAddressLocation () => string.Format("{0}, {1}, {2}", Country.Name, UnitLocality.Name,
+            AddressDetail);
         public readonly List<Location> _locations = new List<Location>();
         
-        public Location(Country country, IUnitLocality unitLocality, string addressDetail)
+        public Location(Country country, IUnitLocality unitLocality, string addressDetail = "address detail")
         {
             Country = country;
             UnitLocality = unitLocality;
@@ -27,12 +30,17 @@ namespace Classes_CSharp
         {
             if (_locations.Contains(location))
             {
-                Console.WriteLine("There are this Locations in list");
+                Console.WriteLine($"This Location: {location.FullAddressLocation()} is content in the list.");
             }
             else
             {
                 _locations.Add(location);
             }
+        }
+
+        public override string ToString()
+        {
+            return $"{Country?.CountryCode.ToString()}, {UnitLocality?.Name}, {AddressDetail}" ;
         }
     }
 }

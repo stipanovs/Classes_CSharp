@@ -20,6 +20,7 @@ namespace Classes_CSharp
         public Location LocationFrom { get; } 
         public Location LocationTo { get; }
         private double _price;
+
         public readonly Repository<Post> _allPosts = new Repository<Post>();
         public double Price
         {
@@ -37,7 +38,10 @@ namespace Classes_CSharp
             }
         }
 
-        public Post(DateTime dataFrom, DateTime dateTo, Location locationFrom, Location locationTo,  double price, long id)
+        public string Description { get; set; }
+           
+        public Post(DateTime dataFrom, DateTime dateTo, Location locationFrom,
+            Location locationTo,  double price, long id , string description = "")
         {
             DateFrom = dataFrom;
             DateTo = dateTo;
@@ -45,8 +49,9 @@ namespace Classes_CSharp
             LocationTo = locationTo;
             Price = price;
             ID = id;
+            Description = description;
         }
-
+       
         public Post()
         {
             

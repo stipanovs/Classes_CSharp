@@ -8,5 +8,11 @@ namespace Classes_CSharp.PostsModel
 {
     public class PostTransport : Post, IPostType
     {
+        public PostTransport(DateTime dataFrom, DateTime dateTo, Location locationFrom,
+            Location locationTo, double price, long id, string description = "") 
+            : base(dataFrom, dateTo, locationFrom, locationTo, price, id, description)
+        {
+
+        }
     }
 }

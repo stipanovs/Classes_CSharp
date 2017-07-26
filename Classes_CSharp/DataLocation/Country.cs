@@ -16,7 +16,7 @@ namespace Classes_CSharp
         public string Name { get; private set; }
         public int CountryCode { get;  private set; }
 
-        public Country(string name, int countryCode, string currency)
+        public Country(string name, int countryCode = 0, string currency = "null")
         {
             Name = name;
             CountryCode = countryCode;
