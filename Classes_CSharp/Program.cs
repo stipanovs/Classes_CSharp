@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -110,8 +111,18 @@ namespace Classes_CSharp
             #endregion
 
             #region Stream
+            string fileName = @"C:\Users\sergiu.stipanov\OneDrive\Materiale\files\Repository.txt";
+            FileInfo f = new FileInfo(fileName);
+            StreamWriter sr = f.AppendText();
+            sr.WriteLine("hello");
+            sr.Close();
+            Console.WriteLine(sr);
+           
+           
+            Console.WriteLine();
+
             ////save countries to file
-            //string fileName = @"C:\Users\sergiu.stipanov\OneDrive\Materiale\files\Repository.txt";
+            
             //Repository<Country> countryRepository = new Repository<Country>();
 
             //foreach (var c in countries)
@@ -143,7 +154,7 @@ namespace Classes_CSharp
                 new DateTime(2017, 07, 25), new DateTime(2017, 08, 05), locChisinau,
                 locMoscow, 4750.00, 000145, PostType.Cargo);
 
-            Console.WriteLine(newPost.ToString());
+            //Console.WriteLine(newPost.ToString());
 
             #endregion
 
