@@ -9,17 +9,17 @@ using Classes_CSharp.Users;
 
 namespace Classes_CSharp.Facade
 {
-    public class FacadeClass
+    public class UserFacade
     {
-        private static readonly Lazy<FacadeClass> lazy = new Lazy<FacadeClass>(() => new FacadeClass(), true);
-        public static FacadeClass Instance { get { return lazy.Value; } }
+        private static readonly Lazy<UserFacade> lazy = new Lazy<UserFacade>(() => new UserFacade(), true);
+        public static UserFacade Instance { get { return lazy.Value; } }
 
         public User _user;
         public PostCargo _postCargo;
         public PostTransport _PostTransport;
         public Repository<Post> _repositoryPosts;
       
-        private FacadeClass()
+        private UserFacade()
         {
             _user = new User();
             _repositoryPosts = new Repository<Post>();

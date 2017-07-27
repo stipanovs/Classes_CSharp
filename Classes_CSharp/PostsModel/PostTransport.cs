@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Classes_CSharp.PostsModel
 {
-    public class PostTransport : Post, IPostType
+    public class PostTransport : Post
     {
         public PostTransport(DateTime dataFrom, DateTime dateTo, Location locationFrom,
             Location locationTo, double price, long id, string description = "") 

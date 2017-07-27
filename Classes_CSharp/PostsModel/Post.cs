@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Classes_CSharp.Enums;
 using Classes_CSharp.Events;
 using Classes_CSharp.Models;
 using Classes_CSharp.Repository;
@@ -11,7 +10,7 @@ using Classes_CSharp.Users;
 
 namespace Classes_CSharp
 {
-    public class Post : EntityBase
+    public abstract class Post : EntityBase
     {
         public User _user;
         private readonly DateTime _publicationDate = DateTime.Now;
@@ -38,7 +37,7 @@ namespace Classes_CSharp
             }
         }
 
-        public string Description { get; set; }
+        public string Description { get; }
            
         public Post(DateTime dataFrom, DateTime dateTo, Location locationFrom,
             Location locationTo,  double price, long id , string description = "")
@@ -71,6 +70,10 @@ namespace Classes_CSharp
             var allpost = _allPosts.GetAll();
             if (allpost != null && allpost.Contains(post)) _allPosts.Create(post);
         }
-        
+
+        public override string ToString()
+        {
+            return string.Format("{0} - {1}: {2}", LocationFrom, LocationTo, Price);
+        }
     }
 }

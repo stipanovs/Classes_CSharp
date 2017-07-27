@@ -6,7 +6,6 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Classes_CSharp.DataLocation;
-using Classes_CSharp.Enums;
 using Classes_CSharp.Repository;
 using Classes_CSharp.Users;
 using Classes_CSharp.Events;
@@ -30,15 +29,18 @@ namespace Classes_CSharp
             var ucraina = new Country("Ucraina", 854, "UAH");
             var russia = new Country("Russia", 643, "RUB");
             var countries = new List<Country>() { moldova, italia, ucraina, russia };
-            
-            #endregion
-            
 
-            Location locChisinau = new Location(moldova, new City("Chisinau"),"str. Titulescu 10/4 ap 61");
-            Location locBardar = new Location(moldova, new Village("Bardar"), "nu sunt strazi" );
+            #endregion
+
+            #region Location
+
+            Location locChisinau = new Location(moldova, new City("Chisinau"), "str. Titulescu 10/4 ap 61");
+            Location locBardar = new Location(moldova, new Village("Bardar"), "nu sunt strazi");
             Location locMoscow = new Location(russia, new City("Moscow"));
             Location locRome = new Location(italia, new Village("Padovana"));
             Location locKiev = new Location(country: ucraina, unitLocality: new City("Kiev"));
+
+            #endregion
 
             #region Dynamic
 
@@ -46,7 +48,7 @@ namespace Classes_CSharp
             //dynamic pythonFile = PythonRuntime.UseFile("Test.py");
             //dynamic resultFromPythonTest = pythonFile.SummNumbersInRange(50);
             //Console.WriteLine(resultFromPythonTest);
-            
+
             //// import Countries from Python file
             //dynamic countryList = pythonFile.country_list;
 
@@ -57,7 +59,7 @@ namespace Classes_CSharp
 
             //foreach (var c in countries)
             //{
-            //   WriteLine(c.Name);
+            //    WriteLine(c.Name);
             //}
 
             //Console.ReadKey();
@@ -66,7 +68,7 @@ namespace Classes_CSharp
 
             #region NameOf
 
-            
+
             #endregion
 
             #region Comparer
@@ -83,7 +85,7 @@ namespace Classes_CSharp
             var post1 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 2450.00, 769898456);
             var post2 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 3875.00, 769898456);
             var post3 = new PostTransport(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), locKiev, locChisinau, 4100.00, 128978941);
-            IPostType post4 = new PostCargo(new DateTime(2017, 7, 14), new DateTime(2017, 7, 12), locKiev, locBardar, 3800.00, 128978941);
+            var post4 = new PostCargo(new DateTime(2017, 7, 14), new DateTime(2017, 7, 12), locKiev, locBardar, 3800.00, 128978941);
           
             post1.AddToRepository(post1);
             post1.AddToRepository(post2);
@@ -129,7 +131,8 @@ namespace Classes_CSharp
             //}
             #endregion
             
-            FacadeClass facade1 = FacadeClass.Instance;
+            // facade
+            UserFacade facade1 = UserFacade.Instance;
             facade1.CreatePost(true, post1);
 
             // tuple
@@ -138,8 +141,10 @@ namespace Classes_CSharp
             #region FACTORY
 
             PostFactory postFactory = new PostFactory();
-            var newPost = postFactory.CreateNewPost(new DateTime(2017, 07, 25), new DateTime(2017, 08, 05), locChisinau,
-                locMoscow, 4750.00, 154568);
+            var newPost = postFactory.CreateNewPost(
+                new DateTime(2017, 07, 25), new DateTime(2017, 08, 05), locChisinau,
+                locMoscow, 4750.00, 154568, PostType.Cargo);
+
             Console.WriteLine(newPost.Description);
 
             #endregion

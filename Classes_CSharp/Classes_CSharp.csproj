@@ -84,11 +84,10 @@
     <Compile Include="Factory\PostFactory.cs" />
     <Compile Include="PostsModel\PostTransport.cs" />
     <Compile Include="Repository\EntityBase.cs" />
-    <Compile Include="Facade\FacadeClass.cs" />
-    <Compile Include="Models\CargoTypes.cs" />
+    <Compile Include="Facade\UserFacade.cs" />
     <Compile Include="Events\PostPriceChangedEventArgs.cs" />
     <Compile Include="DataLocation\Location.cs" />
-    <Compile Include="Models\Cargo.cs" />
+    <Compile Include="Models\ICargoType.cs" />
     <Compile Include="PostsModel\Post.cs" />
     <Compile Include="Comparer\CountryComparer.cs" />
     <Compile Include="Program.cs" />
@@ -106,8 +105,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

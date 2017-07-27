@@ -30,7 +30,6 @@ namespace Classes_CSharp.Repository
             return _contextList.FirstOrDefault(x => x.ID == ID);
         }
 
-        
         public void SaveToFile(T entity, string filename)
         {
             FileInfo f = new FileInfo(filename);
