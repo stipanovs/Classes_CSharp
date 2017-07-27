@@ -19,7 +19,6 @@ namespace Classes_CSharp
 {
    class Program
     {
-       
         static void Main(string[] args)
         {
             #region countries
@@ -81,16 +80,6 @@ namespace Classes_CSharp
 
             #endregion
 
-            // posting new information about Transport Freight 
-            var post1 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 2450.00, 769898456);
-            var post2 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 3875.00, 769898456);
-            var post3 = new PostTransport(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), locKiev, locChisinau, 4100.00, 128978941);
-            var post4 = new PostCargo(new DateTime(2017, 7, 14), new DateTime(2017, 7, 12), locKiev, locBardar, 3800.00, 128978941);
-          
-            post1.AddToRepository(post1);
-            post1.AddToRepository(post2);
-            post3.AddToRepository(post3);
-
             #region EVENTS
 
             //// new users 
@@ -119,7 +108,7 @@ namespace Classes_CSharp
             //post1.Price = 3800;
 
             #endregion
-            
+
             #region Stream
             ////save countries to file
             //string fileName = @"C:\Users\sergiu.stipanov\OneDrive\Materiale\files\Repository.txt";
@@ -130,22 +119,31 @@ namespace Classes_CSharp
             //    countryRepository.SaveToFile(c, fileName);
             //}
             #endregion
-            
+
+            // posting new information about Transport Freight 
+            var post1 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 2450.00, 000021458);
+            var post2 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 3875.00, 021589654);
+            var post3 = new PostTransport(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), locKiev, locChisinau, 4100.00, 00001546);
+            var post4 = new PostCargo(new DateTime(2017, 7, 14), new DateTime(2017, 7, 12), locKiev, locBardar, 3800.00, 02054855);
+
             // facade
-            UserFacade facade1 = UserFacade.Instance;
-            facade1.CreatePost(true, post1);
+            UserFacade userFacade = UserFacade.Instance;
+            userFacade.CreatePost(post1);
+            userFacade.CreatePost(new DateTime(2017, 7, 14), new DateTime(2017, 7, 12), locKiev, locBardar, 3800.00, 001548794, PostType.Transport);
 
-            // tuple
-            (string Alpha, string Beta, string Teta) namedLetters = ("a", "b", "c");
-
+            #region Tuple
+            //// tuple
+            //(string Alpha, string Beta, string Teta) namedLetters = ("a", "b", "c");
+            #endregion
+            
             #region FACTORY
 
             PostFactory postFactory = new PostFactory();
             var newPost = postFactory.CreateNewPost(
                 new DateTime(2017, 07, 25), new DateTime(2017, 08, 05), locChisinau,
-                locMoscow, 4750.00, 154568, PostType.Cargo);
+                locMoscow, 4750.00, 000145, PostType.Cargo);
 
-            Console.WriteLine(newPost.Description);
+            Console.WriteLine(newPost.ToString());
 
             #endregion
 

@@ -15,9 +15,6 @@ namespace Classes_CSharp
        Transport
     }
     
-    // static Fabric Methode - Type of product in dependece of params
-    // polimorphic Fabric Methode - Interface, Concrete Fabric in dependece of params
-
     public class PostFactory
     {
         public Post CreateNewPost(DateTime dataFrom, DateTime dateTo, 

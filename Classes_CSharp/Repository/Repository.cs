@@ -9,7 +9,7 @@ namespace Classes_CSharp.Repository
 {
     public class Repository<T> : IRepository<T> where T : EntityBase
     {
-        private readonly List<T> _contextList; // DbSet
+        private readonly List<T> _contextList = new List<T>(); // DbSet
         public void Create(T entity)
         {
             _contextList.Add(entity);

@@ -15,14 +15,14 @@ namespace Classes_CSharp.Facade
         public static UserFacade Instance { get { return lazy.Value; } }
 
         public User _user;
-        public PostCargo _postCargo;
-        public PostTransport _PostTransport;
         public Repository<Post> _repositoryPosts;
+        public PostFactory _postFactory;
       
         private UserFacade()
         {
             _user = new User();
             _repositoryPosts = new Repository<Post>();
+            _postFactory = new PostFactory();
         }
         
         public bool IsUserEligibleToPost()
@@ -30,9 +30,16 @@ namespace Classes_CSharp.Facade
             return !_user._bloked;
         }
 
-        public void CreatePost(bool userCanPost, Post post)
+        public void CreatePost(Post post)
         {
             if (IsUserEligibleToPost()) _user.UserAddPost(post);
+        }
+
+        public void CreatePost( DateTime dataFrom, DateTime dateTo,
+            Location locationFrom, Location locationTo, double price, long id, PostType type)
+        {
+            if (IsUserEligibleToPost())
+                _repositoryPosts.Create(_postFactory.CreateNewPost(dataFrom, dateTo, locationFrom, locationTo, price, id, type));
         }
 
         public void RemovePost(Post post)

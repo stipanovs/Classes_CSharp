@@ -20,8 +20,7 @@ namespace Classes_CSharp
         public Location LocationTo { get; }
         private double _price;
 
-        public readonly Repository<Post> _allPosts = new Repository<Post>();
-        public double Price
+       public double Price
         {
             get { return _price; }
             set
@@ -51,11 +50,6 @@ namespace Classes_CSharp
             Description = description;
         }
        
-        public Post()
-        {
-            
-        }
-
         public event EventHandler<PostPriceChangedEventArgs> PostPriceChanged; // The event
         public void OnPostPriceChanged(PostPriceChangedEventArgs e) // Notify register objects
         {
@@ -65,15 +59,9 @@ namespace Classes_CSharp
             }
         }
         
-        public void AddToRepository(Post post)
+       public override string ToString()
         {
-            var allpost = _allPosts.GetAll();
-            if (allpost != null && allpost.Contains(post)) _allPosts.Create(post);
-        }
-
-        public override string ToString()
-        {
-            return string.Format("{0} - {1}: {2}", LocationFrom, LocationTo, Price);
+            return string.Format("{0} - {1}: {2}", LocationFrom.Country.Name, LocationTo.Country.Name, Price);
         }
     }
 }
