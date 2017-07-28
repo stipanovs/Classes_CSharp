@@ -144,25 +144,19 @@ namespace Classes_CSharp
             //    countryRepository.SaveToFile(c, fileName);
             //}
             #endregion
-
+            
             #region Facade
 
-            var beerCargoSpecification = new CargoSpecification("Karlsberg Beer", 7.5, 3.7);
-            var truckSpecification = new TransportSpecification(TransportType.Truck, 20.00, 35.00);
-
-            // facade
-
-            UserFacade userFacade = UserFacade.Instance;
+           UserFacade userFacade = UserFacade.Instance;
             userFacade.CreatePost(post1);
 
             userFacade.CreatePost(
-                new DateTime(2017, 07, 25), new DateTime(2017, 08, 04), 
+                new DateTime(2017, 07, 25), new DateTime(2017, 08, 04),
                 locChisinau, locKiev, 1500.00,
-                1241564, "call Vasea", truckSpecification);
-            
+                1241564, "call Vasea", new CargoSpecification("Water Mineral", 20.00, 25.00));
 
             #endregion
-
+            
             #region Tuple
             //// tuple
             //(string Alpha, string Beta, string Gama) namedLetters = ("a", "b", "c");
@@ -170,17 +164,26 @@ namespace Classes_CSharp
             #endregion
 
             #region FACTORY
-
-            
             PostFactory postFactory = new PostFactory();
 
-            var newPost = postFactory.CreateNewPost(
-                new DateTime(2017, 07, 25), new DateTime(2017, 08, 05), locChisinau,
-                locMoscow, 4750.00, 000145, "Call 373 6544518", beerCargoSpecification);
+            var beerCargoSpecification = new CargoSpecification("Karlsberg Beer", 7.5, 3.7);
+            var woodCargoSpecification = new CargoSpecification("Wood", 15.45, 27.00);
+            var truckSpecification = new TransportSpecification(TransportType.Truck, 20.00, 35.00);
+            var minibusSpecification = new TransportSpecification(TransportType.Minibus, 6.00, 7.8);
+            
+            var newPostCargo = postFactory.CreateNewPost(
+                new DateTime(2017, 07, 25), new DateTime(2017, 08, 05), locRome,
+                locChisinau, 4750.00, 000145, "Call 373 6544518", beerCargoSpecification);
 
-            Console.WriteLine(newPost.Description);
+            Console.WriteLine(newPostCargo.Description);
+            WriteLine(newPostCargo is PostCargo);
 
-            WriteLine(newPost is PostCargo);
+            var newPostTransport = postFactory.CreateNewPost(new DateTime(2017, 07, 08), new DateTime(2017, 08, 31), locMoscow,
+                locChisinau, 1875.00, 005448, "For more information Call +3739547821", truckSpecification);
+
+            
+            Console.WriteLine(newPostTransport);
+            Console.WriteLine(newPostTransport is PostCargo);
 
             #endregion
 
@@ -287,13 +290,11 @@ namespace Classes_CSharp
 
 
             #endregion
-
-           
+            
             Console.ReadKey();
         }
-    }
-
-
+   }
+    
     //class A{}
     //class B : A{}
     //class C : B { }
