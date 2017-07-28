@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Classes_CSharp.PostsModel;
+using Classes_CSharp.PostsModel.SpecificationType;
 using Classes_CSharp.Repository;
 using Classes_CSharp.Users;
 
@@ -36,10 +37,12 @@ namespace Classes_CSharp.Facade
         }
 
         public void CreatePost( DateTime dataFrom, DateTime dateTo,
-            Location locationFrom, Location locationTo, double price, long id, PostType type)
+            Location locationFrom, Location locationTo, double price, long id, string desc, 
+            ISpecification specification)
         {
             if (IsUserEligibleToPost())
-                _repositoryPosts.Create(_postFactory.CreateNewPost(dataFrom, dateTo, locationFrom, locationTo, price, id, type));
+                _repositoryPosts.Create(_postFactory.CreateNewPost(dataFrom, dateTo, locationFrom,
+                    locationTo, price, id, desc, specification));
         }
 
         public void RemovePost(Post post)

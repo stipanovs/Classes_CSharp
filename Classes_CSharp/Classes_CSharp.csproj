@@ -79,10 +79,12 @@
     <Compile Include="CustomList.cs" />
     <Compile Include="DataLocation\IUnitLocality.cs" />
     <Compile Include="DataLocation\Village.cs" />
-    <Compile Include="PostsModel\IPostType.cs" />
+    <Compile Include="PostsModel\SpecificationType\CargoSpecification.cs" />
+    <Compile Include="PostsModel\SpecificationType\ISpecification.cs" />
     <Compile Include="PostsModel\PostCargo.cs" />
     <Compile Include="Factory\PostFactory.cs" />
     <Compile Include="PostsModel\PostTransport.cs" />
+    <Compile Include="PostsModel\SpecificationType\TransportSpecification.cs" />
     <Compile Include="Repository\EntityBase.cs" />
     <Compile Include="Facade\UserFacade.cs" />
     <Compile Include="Events\PostPriceChangedEventArgs.cs" />

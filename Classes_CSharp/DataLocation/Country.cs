@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics.PerformanceData;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,10 @@ namespace Classes_CSharp
 
         public Country(string name, int countryCode = 0, string currency = "null")
         {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentNullException(nameof(name) + " is null or whitespace");
+            }
             Name = name;
             CountryCode = countryCode;
             _nationalCurrency = currency;

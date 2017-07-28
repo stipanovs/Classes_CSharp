@@ -3,7 +3,7 @@
   <Class Name="Classes_CSharp.Users.User" Collapsed="true">
     <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACEAAAAAAAAgEAEBAIAAAAgAAAAAAAAAAAQAAAAg=</HashCode>
+      <HashCode>AAAACEAAAAAAAAgFAEBAIAAAAgAAABAAAAAAAQACCAg=</HashCode>
       <FileName>Users\User.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -17,7 +17,7 @@
   <Class Name="Classes_CSharp.Repository.Repository&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="1.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAEAAAAAAAAEAAEAAAgAAAAAAAIA=</HashCode>
+      <HashCode>AAQAAAAgAAAAAAAAAEAAAAAAAAEAAEAAAgAAAAAAAIA=</HashCode>
       <FileName>Repository\Repository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.554" Collapsed="true" />
@@ -48,51 +48,30 @@
   <Class Name="Classes_CSharp.Country" Collapsed="true">
     <Position X="2.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAFAADAEAgAAAEAAAgAAAAAAAAAAAAACAAAAAEAAA=</HashCode>
-      <FileName>Country.cs</FileName>
+      <HashCode>ACAAEAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataLocation\Country.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Classes_CSharp.EntityBase" Collapsed="true">
     <Position X="1.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityBase.cs</FileName>
+      <FileName>Repository\EntityBase.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Classes_CSharp.Location" Collapsed="true">
     <Position X="0.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAgAAAAACAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Location.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Classes_CSharp.Posts" Collapsed="true">
-    <Position X="5.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AgAAAAAAAQAAgAAEAAACAAAAAIAQAAEQgAABAgCBAAI=</HashCode>
-      <FileName>Posts.cs</FileName>
+      <HashCode>AAAAAAQAAAAEAAAEAAAAAEAAAAIAAAAAAAEAAACAAAA=</HashCode>
+      <FileName>DataLocation\Location.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Classes_CSharp.Repository.IRepository&lt;T&gt;" Collapsed="true">
     <Position X="1.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAgAAAAAAAIA=</HashCode>
+      <HashCode>AAQAAAAgAAAAAAAAAAAAAAAAAAEAAEAAAgAAAAAAAIA=</HashCode>
       <FileName>Repository\IRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="Classes_CSharp.Region" Collapsed="true">
-    <Position X="2.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAAAAgAAAAAAAAAAgAAAAAAAAAEAA=</HashCode>
-      <FileName>Enums\Region.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="Classes_CSharp.Enums.LocationType" Collapsed="true">
-    <Position X="0.5" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAggAAAAIAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Enums\LocationType.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

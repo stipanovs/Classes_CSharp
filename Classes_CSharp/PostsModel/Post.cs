@@ -13,14 +13,13 @@ namespace Classes_CSharp
     public abstract class Post : EntityBase
     {
         public User _user;
-        private readonly DateTime _publicationDate = DateTime.Now;
+        private DateTime PublicationDate () => DateTime.Now;
         public DateTime DateFrom { get; private set; }
         public DateTime DateTo { get; private set; }
         public Location LocationFrom { get; } 
         public Location LocationTo { get; }
         private double _price;
-
-       public double Price
+        public double Price
         {
             get { return _price; }
             set
@@ -35,11 +34,10 @@ namespace Classes_CSharp
                 _price = value;
             }
         }
-
-        public string Description { get; }
+        public string Description { get; set; }
            
         public Post(DateTime dataFrom, DateTime dateTo, Location locationFrom,
-            Location locationTo,  double price, long id , string description = "")
+            Location locationTo,  double price, long id, string description = "")
         {
             DateFrom = dataFrom;
             DateTo = dateTo;
@@ -47,9 +45,15 @@ namespace Classes_CSharp
             LocationTo = locationTo;
             Price = price;
             ID = id;
-            Description = description;
+            Description = $"Direction: {LocationFrom.Country.Name} - {LocationTo.Country.Name}, Price: {Price} ";
+
+            if (!string.IsNullOrWhiteSpace(description))
+            {
+                Description += description;
+            }
         }
-       
+
+        #region Event
         public event EventHandler<PostPriceChangedEventArgs> PostPriceChanged; // The event
         public void OnPostPriceChanged(PostPriceChangedEventArgs e) // Notify register objects
         {
@@ -58,10 +62,11 @@ namespace Classes_CSharp
                 PostPriceChanged(this, e); // delagate invoke()
             }
         }
+        #endregion
         
-       public override string ToString()
+        public override string ToString()
         {
-            return string.Format("{0} - {1}: {2}", LocationFrom.Country.Name, LocationTo.Country.Name, Price);
+            return Description;
         }
     }
 }

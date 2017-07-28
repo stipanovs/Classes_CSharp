@@ -12,6 +12,7 @@ using Classes_CSharp.Users;
 using Classes_CSharp.Events;
 using Classes_CSharp.Facade;
 using Classes_CSharp.PostsModel;
+using Classes_CSharp.PostsModel.SpecificationType;
 using IronPython.Hosting;
 using static System.Console;
 
@@ -42,6 +43,18 @@ namespace Classes_CSharp
 
             #endregion
 
+            #region PostData
+            
+            // posting new information about Transport Freight 
+            var post1 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 2450.00, 000021458);
+            var post2 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 3875.00, 021589654);
+            var post3 = new PostTransport(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), locKiev, locChisinau, 4100.00, 00001546);
+            var post4 = new PostCargo(new DateTime(2017, 7, 14), new DateTime(2017, 7, 12), locKiev, locBardar, 3800.00, 02054855);
+            // named arg
+            var post5 = new PostCargo(locationFrom: locChisinau, locationTo: locKiev,
+                dataFrom: new DateTime(2017, 07, 20), dateTo: new DateTime(2017, 08, 02), price: 3500.00, id: 00014);
+            #endregion
+
             #region Dynamic
 
             //var PythonRuntime = Python.CreateRuntime();
@@ -67,7 +80,7 @@ namespace Classes_CSharp
             #endregion
 
             #region NameOf
-
+            // Country name validate
 
             #endregion
 
@@ -111,18 +124,19 @@ namespace Classes_CSharp
             #endregion
 
             #region Stream
-            string fileName = @"C:\Users\sergiu.stipanov\OneDrive\Materiale\files\Repository.txt";
-            FileInfo f = new FileInfo(fileName);
-            StreamWriter sr = f.AppendText();
-            sr.WriteLine("hello");
-            sr.Close();
-            Console.WriteLine(sr);
-           
-           
-            Console.WriteLine();
+
+            //string fileName = @"C:\Users\sergiu.stipanov\OneDrive\Materiale\files\Repository.txt";
+            //FileInfo f = new FileInfo(fileName);
+            //StreamWriter sr = f.AppendText();
+            //sr.WriteLine("hello");
+            //sr.Close();
+            //Console.WriteLine(sr);
+
+
+            //Console.WriteLine();
 
             ////save countries to file
-            
+
             //Repository<Country> countryRepository = new Repository<Country>();
 
             //foreach (var c in countries)
@@ -131,34 +145,157 @@ namespace Classes_CSharp
             //}
             #endregion
 
-            // posting new information about Transport Freight 
-            var post1 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 2450.00, 000021458);
-            var post2 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 3875.00, 021589654);
-            var post3 = new PostTransport(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), locKiev, locChisinau, 4100.00, 00001546);
-            var post4 = new PostCargo(new DateTime(2017, 7, 14), new DateTime(2017, 7, 12), locKiev, locBardar, 3800.00, 02054855);
+            #region Facade
+
+            var beerCargoSpecification = new CargoSpecification("Karlsberg Beer", 7.5, 3.7);
+            var truckSpecification = new TransportSpecification(TransportType.Truck, 20.00, 35.00);
 
             // facade
+
             UserFacade userFacade = UserFacade.Instance;
             userFacade.CreatePost(post1);
-            userFacade.CreatePost(new DateTime(2017, 7, 14), new DateTime(2017, 7, 12), locKiev, locBardar, 3800.00, 001548794, PostType.Transport);
+
+            userFacade.CreatePost(
+                new DateTime(2017, 07, 25), new DateTime(2017, 08, 04), 
+                locChisinau, locKiev, 1500.00,
+                1241564, "call Vasea", truckSpecification);
+            
+
+            #endregion
 
             #region Tuple
             //// tuple
-            //(string Alpha, string Beta, string Teta) namedLetters = ("a", "b", "c");
+            //(string Alpha, string Beta, string Gama) namedLetters = ("a", "b", "c");
+
             #endregion
-            
+
             #region FACTORY
 
+            
             PostFactory postFactory = new PostFactory();
+
             var newPost = postFactory.CreateNewPost(
                 new DateTime(2017, 07, 25), new DateTime(2017, 08, 05), locChisinau,
-                locMoscow, 4750.00, 000145, PostType.Cargo);
+                locMoscow, 4750.00, 000145, "Call 373 6544518", beerCargoSpecification);
 
-            //Console.WriteLine(newPost.ToString());
+            Console.WriteLine(newPost.Description);
+
+            WriteLine(newPost is PostCargo);
 
             #endregion
 
+            #region Dictionary
+
+            //var posts = new Dictionary<string, Post>()
+            //{
+            //    ["post1"] = post1,
+            //    ["post2"] = post2,
+            //    ["post3"] = post3,
+            //    ["post4"] = post4,
+            //    ["post4"] = post1,
+
+            //};
+
+            //Console.WriteLine($" ====== {posts["post4"]}");
+            ////posts["post4"] = post4;
+
+            #endregion
+
+            #region Null Conditional Operator
+
+            //Country morocco = null;
+            //WriteLine(morocco?.Name ?? "Field is null");
+
+            #endregion
+
+            #region ExceptionFilters
+
+            //string httpStatusCode = "401";
+
+            //try
+            //{
+            //    throw new Exception(httpStatusCode);
+            //}
+            //catch (Exception ex) when (ex.Message.Equals("400"))
+            //{
+            //    Write("Bad Request");
+            //}
+            //catch (Exception ex) when (ex.Message.Equals("401"))
+            //{
+            //    Write("Unauthorized");
+            //}
+            //catch (Exception ex) when (ex.Message.Equals("402"))
+            //{
+            //    Write("Payment Required");
+            //}
+            //catch (Exception ex) when (ex.Message.Equals("403"))
+            //{
+            //    Write("Forbidden");
+            //}
+            //catch (Exception ex) when (ex.Message.Equals("404"))
+            //{
+            //    Write("Not Found");
+            //}
+
+
+            #endregion
+
+            #region out var
+
+            //if (int.TryParse("000457", out int result))
+            //    WriteLine(result);
+            //else
+            //    WriteLine("Could not parse input");
+
+
+            #endregion
+
+            #region Ref locals 
+
+            //ref int Find(int number, int[] numbers)
+            //{
+            //    for (int i = 0; i < numbers.Length; i++)
+            //    {
+            //        if (numbers[i] == number)
+            //        {
+            //            return ref numbers[i]; // we return reference, not value
+            //        }
+            //    }
+            //    throw new IndexOutOfRangeException("Number is not found");
+            //}
+
+            //int[] listNum = { 4, 6, 9, 4, 7, 12 };
+            //ref int numRef = ref Find(7, listNum);
+            //WriteLine(numRef);
+            //numRef = 55;
+            //WriteLine(listNum[4]);
+
+
+            #endregion
+
+            #region Cast convertion
+
+            //A a = new A();
+            //B b = (B)a;
+            //WriteLine(b?.ToString() ?? "b is null");
+
+            //a = new C();
+            //WriteLine(a is A);
+            //WriteLine(a is B);
+            //WriteLine(a is C);
+            //WriteLine(a is D);
+
+
+            #endregion
+
+           
             Console.ReadKey();
         }
     }
+
+
+    //class A{}
+    //class B : A{}
+    //class C : B { }
+    //class D : A { }
 }

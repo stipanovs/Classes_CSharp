@@ -59,8 +59,7 @@ namespace Classes_CSharp.Users
         {
             _userPosts.Remove(post);
         }
-
-
+        
         public void InboxMessage(object sender, PostPriceChangedEventArgs p)
         {
             string content = string.Format("Post ID: {0} price has changed. The last Price was {1}. \n" +

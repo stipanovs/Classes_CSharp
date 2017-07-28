@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Classes_CSharp
+namespace Classes_CSharp.PostsModel.SpecificationType
 {
-    interface IPostType
+    public interface ISpecification 
     {
-
+        
     }
 }

@@ -4,32 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Classes_CSharp.PostsModel;
+using Classes_CSharp.PostsModel.SpecificationType;
 using Microsoft.Scripting.Utils;
 
 
 namespace Classes_CSharp
 {
-    public enum PostType
-    {
-       Cargo = 1,
-       Transport
-    }
     
     public class PostFactory
     {
-        public Post CreateNewPost(DateTime dataFrom, DateTime dateTo, 
-            Location locationFrom, Location locationTo, double price, long id, PostType type)
+        
+        public Post CreateNewPost(DateTime dataFrom, DateTime dateTo,
+            Location locationFrom, Location locationTo, double price, long id, string description,
+            ISpecification specification)
         {
             Post post = null;
 
-            switch (type)
+            if (specification is CargoSpecification)
             {
-                case PostType.Cargo:
-                    post =  new PostCargo(dataFrom, dateTo, locationFrom, locationTo, price, id);
-                    break;
-                case PostType.Transport:
-                    post =  new PostTransport(dataFrom, dateTo, locationFrom, locationTo, price, id);
-                    break;
+                post = new PostCargo(dataFrom, dateTo, locationFrom, locationTo, price, id, description, (CargoSpecification)specification);
+            }
+            else if (specification is TransportSpecification)
+            {
+                post = new PostTransport(dataFrom, dateTo, locationFrom, locationTo, price, id, description, (TransportSpecification)specification);
             }
             return post;
         }
