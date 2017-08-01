@@ -69,8 +69,6 @@
     <Build Include="Tables\Village.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DataBaseProject.publish.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="DBCargo.publish.publish.xml" />
   </ItemGroup>
 </Project>
