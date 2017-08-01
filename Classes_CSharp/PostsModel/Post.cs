@@ -37,14 +37,13 @@ namespace Classes_CSharp
         public string Description { get; set; }
            
         public Post(DateTime dataFrom, DateTime dateTo, Location locationFrom,
-            Location locationTo,  double price, long id, string description = "")
+            Location locationTo,  double price, string description = "")
         {
             DateFrom = dataFrom;
             DateTo = dateTo;
             LocationFrom = locationFrom;
             LocationTo = locationTo;
             Price = price;
-            ID = id;
             Description = $"Direction: {LocationFrom.Country.Name} - {LocationTo.Country.Name}, Price: {Price} ";
 
             if (!string.IsNullOrWhiteSpace(description))

@@ -11,8 +11,8 @@ namespace Classes_CSharp.PostsModel
     {
         public TransportSpecification Specification;
         public PostTransport(DateTime dataFrom, DateTime dateTo, Location locationFrom,
-            Location locationTo, double price, long id, string description = "", TransportSpecification transportSpecification = null) 
-            : base(dataFrom, dateTo, locationFrom, locationTo, price, id, description)
+            Location locationTo, double price, string description = "", TransportSpecification transportSpecification = null) 
+            : base(dataFrom, dateTo, locationFrom, locationTo, price, description)
         {
             Specification = transportSpecification;
         }

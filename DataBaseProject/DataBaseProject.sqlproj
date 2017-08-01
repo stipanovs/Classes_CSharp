@@ -60,9 +60,17 @@
     <Folder Include="Tables" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DataBaseProject.publish.xml" />
+    <Build Include="Tables\Country.sql">
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
+    </Build>
+    <Build Include="Tables\City.sql">
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
+    </Build>
+    <Build Include="Tables\Village.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\Country.sql" />
+    <None Include="DataBaseProject.publish.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

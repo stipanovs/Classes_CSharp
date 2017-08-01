@@ -12,8 +12,8 @@ namespace Classes_CSharp.PostsModel
         public CargoSpecification Specification { get; set; }
        
         public PostCargo(DateTime dataFrom, DateTime dateTo, Location locationFrom,
-            Location locationTo, double price, long id, string description = "", CargoSpecification specification = null) 
-            : base(dataFrom, dateTo, locationFrom, locationTo, price, id, description)
+            Location locationTo, double price, string description = "", CargoSpecification specification = null) 
+            : base(dataFrom, dateTo, locationFrom, locationTo, price, description)
         {
             Specification = specification;
         }

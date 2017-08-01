@@ -42,7 +42,7 @@ namespace Classes_CSharp.Facade
         {
             if (IsUserEligibleToPost())
                 _repositoryPosts.Create(_postFactory.CreateNewPost(dataFrom, dateTo, locationFrom,
-                    locationTo, price, id, desc, specification));
+                    locationTo, price, desc, specification));
         }
 
         public void RemovePost(Post post)

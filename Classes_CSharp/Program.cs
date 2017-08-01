@@ -46,13 +46,13 @@ namespace Classes_CSharp
             #region PostData
             
             // posting new information about Transport Freight 
-            var post1 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 2450.00, 000021458);
-            var post2 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 3875.00, 021589654);
-            var post3 = new PostTransport(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), locKiev, locChisinau, 4100.00, 00001546);
-            var post4 = new PostCargo(new DateTime(2017, 7, 14), new DateTime(2017, 7, 12), locKiev, locBardar, 3800.00, 02054855);
+            var post1 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 2450.00);
+            var post2 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 3875.00);
+            var post3 = new PostTransport(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), locKiev, locChisinau, 4100.00);
+            var post4 = new PostCargo(new DateTime(2017, 7, 14), new DateTime(2017, 7, 12), locKiev, locBardar, 3800.00);
             // named arg
             var post5 = new PostCargo(locationFrom: locChisinau, locationTo: locKiev,
-                dataFrom: new DateTime(2017, 07, 20), dateTo: new DateTime(2017, 08, 02), price: 3500.00, id: 00014);
+                dataFrom: new DateTime(2017, 07, 20), dateTo: new DateTime(2017, 08, 02), price: 3500.00);
             #endregion
 
             #region Dynamic
@@ -173,13 +173,13 @@ namespace Classes_CSharp
             
             var newPostCargo = postFactory.CreateNewPost(
                 new DateTime(2017, 07, 25), new DateTime(2017, 08, 05), locRome,
-                locChisinau, 4750.00, 000145, "Call 373 6544518", beerCargoSpecification);
+                locChisinau, 4750.00, "Call 373 6544518", beerCargoSpecification);
 
             Console.WriteLine(newPostCargo.Description);
             WriteLine(newPostCargo is PostCargo);
 
             var newPostTransport = postFactory.CreateNewPost(new DateTime(2017, 07, 08), new DateTime(2017, 08, 31), locMoscow,
-                locChisinau, 1875.00, 005448, "For more information Call +3739547821", truckSpecification);
+                locChisinau, 1875.00, "For more information Call +3739547821", truckSpecification);
 
             
             Console.WriteLine(newPostTransport);

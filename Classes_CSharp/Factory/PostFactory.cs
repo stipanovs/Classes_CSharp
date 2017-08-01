@@ -15,18 +15,18 @@ namespace Classes_CSharp
     {
         
         public Post CreateNewPost(DateTime dataFrom, DateTime dateTo,
-            Location locationFrom, Location locationTo, double price, long id, string description,
+            Location locationFrom, Location locationTo, double price, string description,
             ISpecification specification)
         {
             Post post = null;
 
             if (specification is CargoSpecification)
             {
-                post = new PostCargo(dataFrom, dateTo, locationFrom, locationTo, price, id, description, (CargoSpecification)specification);
+                post = new PostCargo(dataFrom, dateTo, locationFrom, locationTo, price, description, (CargoSpecification)specification);
             }
             else if (specification is TransportSpecification)
             {
-                post = new PostTransport(dataFrom, dateTo, locationFrom, locationTo, price, id, description, (TransportSpecification)specification);
+                post = new PostTransport(dataFrom, dateTo, locationFrom, locationTo, price, description, (TransportSpecification)specification);
             }
             return post;
         }

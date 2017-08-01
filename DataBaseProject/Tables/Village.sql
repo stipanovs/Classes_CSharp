@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[Village]
+(
+	[Id] INT IDENTITY(1,1) NOT NULL,
+	[Name] NVARCHAR NOT NULL UNIQUE,
+	[CountryId] int NOT NULL,
+	CONSTRAINT [PK_Village] PRIMARY KEY CLUSTERED([Id])
+	
+);
+
+GO
+
+ALTER TABLE [dbo].[Village] ADD CONSTRAINT [FK_VillageCountry] FOREIGN KEY (CountryId)
+REFERENCES [dbo].[Country]([Id]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
