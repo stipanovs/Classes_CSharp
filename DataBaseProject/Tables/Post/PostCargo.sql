@@ -6,7 +6,7 @@
 	[DateTo] DATE NOT NULL,
 	[LocalityFromId] INT,
 	[LocalityToId] INT,
-	[Price] FLOAT,
+	[Price] DECIMAL(10,2),
 	[CargoSpecificationId] INT,
     [AdditionalInformation] NVARCHAR(100),
 	[UserId] INT NOT NULL,
@@ -18,6 +18,7 @@
 	CONSTRAINT [CargoSpecificationId] FOREIGN KEY ([CargoSpecificationId])
 	REFERENCES [dbo].[CargoSpecification]([Id]) ON DELETE NO ACTION,
 	CONSTRAINT [PostCargoUserId] FOREIGN KEY ([UserId])
-	REFERENCES [dbo].[User]([Id]) ON DELETE NO ACTION
+	REFERENCES [dbo].[User]([Id]) ON DELETE NO ACTION,
+	CHECK ([Price] > 0)
 	
 );
