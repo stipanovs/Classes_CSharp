@@ -12,13 +12,13 @@ namespace Classes_CSharp.PostsModel
     public class CargoSpecification : ISpecification
     {
         public string Description { get; set; }
-        public double Weght { get; set; }
+        public double Weight { get; set; }
         public double Volume { get; set; }
 
         public CargoSpecification(string description, double weight = 0.00, double volume = 0.00)
         {
             Description = description;
-            Weght = weight;
+            Weight = weight;
             Volume = volume;
         }
     }

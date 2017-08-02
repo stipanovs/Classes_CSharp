@@ -5,30 +5,45 @@ using System.Text;
 using System.Threading.Tasks;
 using Classes_CSharp.Events;
 using System.Windows;
+using Classes_CSharp.DataLocation;
 
 namespace Classes_CSharp.Users
 {
     public class User
     {
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public int Age { get; private set; }
+        public string Name { get; private set; }
+        public OwnerShipType OwnershipType { get; private set; } 
+        public ActivityProfile ActivityProfile { get; private set; }
+        public Person ContactPerson { get; set; }
+        public Country Country { get; set; }
+        public City City { get; set; }
+        public AddressDetail  AddressDetail { get; set; }
+        public string Email { get; set; }
+
         public bool _bloked = false;
-        public readonly List<Post> _userPosts = new List<Post>();
 
         private readonly List<UserMessageBox> BoxMessages = new List<UserMessageBox>();
 
-        public User(string firstName, string lastName, int age)
+        public User(string name, OwnerShipType ownershiptype, ActivityProfile acitvityProfile, Person contactPerson,
+            Country country, City city, AddressDetail addressDetail, string email)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Age = age;
+            Name = name;
+            OwnershipType = ownershiptype;
+            ActivityProfile = acitvityProfile;
+            ContactPerson = contactPerson;
+            Country = country;
+            City = city;
+            AddressDetail = addressDetail;
+            Email = email;
         }
 
         public User()
         {
             
         }
+        
+        #region Event
+
 
         public void RegisterToEvent(Post post) // method to subscribe to event : post change price
         {
@@ -50,16 +65,7 @@ namespace Classes_CSharp.Users
             WeakEventManager<Post, PostPriceChangedEventArgs>.RemoveHandler(post, "PostPriceChanged", InboxMessage);
         }
 
-        public void UserAddPost(Post post)
-        {
-            _userPosts.Add(post);
-        }
-
-        public void UserDeletePost(Post post)
-        {
-            _userPosts.Remove(post);
-        }
-        
+      
         public void InboxMessage(object sender, PostPriceChangedEventArgs p)
         {
             string content = string.Format("Post ID: {0} price has changed. The last Price was {1}. \n" +
@@ -69,10 +75,10 @@ namespace Classes_CSharp.Users
             Console.WriteLine("   Content: " + content);
             Console.WriteLine();
         }
-
+        #endregion
         public override string ToString()
         {
-            return string.Format("{0} {1}", FirstName, LastName);
+            return string.Format("{0} {1}", Name);
         }
     }
 }

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Classes_CSharp.DataLocation
 {
-    public interface IUnitLocality
+    public interface ILocalityPlace
     {
+        Country Country { get; set; }
         string Name { get; set; }
     }
 }

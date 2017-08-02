@@ -25,34 +25,34 @@ namespace Classes_CSharp
         {
             #region countries
 
-            var moldova = new Country("Moldova", 373, "LEI");
-            var italia = new Country("Italia", 040, "EUR");
-            var ucraina = new Country("Ucraina", 854, "UAH");
-            var russia = new Country("Russia", 643, "RUB");
+            var moldova = new Country("Moldova", 648, "MD");
+            var italia = new Country("Italia", 040, "IT");
+            var ucraina = new Country("Ucraina", 854, "UA");
+            var russia = new Country("Russia", 643, "RU");
             var countries = new List<Country>() { moldova, italia, ucraina, russia };
 
             #endregion
 
             #region Location
 
-            Location locChisinau = new Location(moldova, new City("Chisinau"), "str. Titulescu 10/4 ap 61");
-            Location locBardar = new Location(moldova, new Village("Bardar"), "nu sunt strazi");
-            Location locMoscow = new Location(russia, new City("Moscow"));
-            Location locRome = new Location(italia, new Village("Padovana"));
-            Location locKiev = new Location(country: ucraina, unitLocality: new City("Kiev"));
+            Locality locChisinau = new Locality(new City("Chisinau", moldova), new AddressDetail("2048", "str. Stefan cel mare 34"));
+            Locality locBardar = new Locality(new Village("Bardar", moldova), new AddressDetail("2048", "no street"));
+            Locality locMoscow = new Locality(new City("Moscow", russia));
+            Locality locRome = new Locality(new Village("Padovana", italia));
+            Locality locKiev = new Locality( unitLocality: new City("Kiev", ucraina));
 
             #endregion
 
             #region PostData
             
             // posting new information about Transport Freight 
-            var post1 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 2450.00);
-            var post2 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 3875.00);
-            var post3 = new PostTransport(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), locKiev, locChisinau, 4100.00);
-            var post4 = new PostCargo(new DateTime(2017, 7, 14), new DateTime(2017, 7, 12), locKiev, locBardar, 3800.00);
+            var post1 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 2450.00, "call 379166741");
+            var post2 = new PostCargo(new DateTime(2017, 7, 07), new DateTime(2017, 7, 09), locMoscow, locRome, 3875.00, "call 379166741");
+            var post3 = new PostTransport(new DateTime(2017, 7, 10), new DateTime(2017, 7, 12), locKiev, locChisinau, 4100.00, "call 379166741");
+            var post4 = new PostCargo(new DateTime(2017, 7, 14), new DateTime(2017, 7, 12), locKiev, locBardar, 3800.00, "call 379166741");
             // named arg
             var post5 = new PostCargo(locationFrom: locChisinau, locationTo: locKiev,
-                dataFrom: new DateTime(2017, 07, 20), dateTo: new DateTime(2017, 08, 02), price: 3500.00);
+                dataFrom: new DateTime(2017, 07, 20), dateTo: new DateTime(2017, 08, 02), price: 3500.00, additionalInformation: "call 379166741");
             #endregion
 
             #region Dynamic
@@ -148,12 +148,10 @@ namespace Classes_CSharp
             #region Facade
 
            UserFacade userFacade = UserFacade.Instance;
-            userFacade.CreatePost(post1);
-
+           
             userFacade.CreatePost(
                 new DateTime(2017, 07, 25), new DateTime(2017, 08, 04),
-                locChisinau, locKiev, 1500.00,
-                1241564, "call Vasea", new CargoSpecification("Water Mineral", 20.00, 25.00));
+                locChisinau, locKiev, 1500.00,"call Vasea", new CargoSpecification("Water Mineral", 20.00, 25.00));
 
             #endregion
             
@@ -175,7 +173,7 @@ namespace Classes_CSharp
                 new DateTime(2017, 07, 25), new DateTime(2017, 08, 05), locRome,
                 locChisinau, 4750.00, "Call 373 6544518", beerCargoSpecification);
 
-            Console.WriteLine(newPostCargo.Description);
+            Console.WriteLine(newPostCargo.ToString());
             WriteLine(newPostCargo is PostCargo);
 
             var newPostTransport = postFactory.CreateNewPost(new DateTime(2017, 07, 08), new DateTime(2017, 08, 31), locMoscow,

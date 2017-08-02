@@ -58,15 +58,26 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="Tables\User" />
+    <Folder Include="Tables\Post" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Country.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </Build>
-    <Build Include="Tables\City.sql">
-      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
-    </Build>
-    <Build Include="Tables\Village.sql" />
+    <Build Include="Tables\LocalityPlaceType.sql" />
+    <Build Include="Tables\LocalityPlace.sql" />
+    <Build Include="Tables\Locality.sql" />
+    <Build Include="Tables\User\OwnerShipType.sql" />
+    <Build Include="Tables\User\ActivityProfile.sql" />
+    <Build Include="Tables\User\Person.sql" />
+    <Build Include="Tables\Post\CargoSpecification.sql" />
+    <Build Include="Tables\Post\TransportType.sql" />
+    <Build Include="Tables\Post\TranportSpecification.sql" />
+    <Build Include="Tables\Post\PostCargo.sql" />
+    <Build Include="Tables\User\User.sql" />
+    <Build Include="Tables\User\UserRole.sql" />
+    <Build Include="Tables\Post\PostTransport.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DBCargo.publish.publish.xml" />

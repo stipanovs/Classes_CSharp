@@ -12,12 +12,13 @@ namespace Classes_CSharp
 {
     public abstract class Post : EntityBase
     {
-        public User _user;
+        public User User { get; set; }
         private DateTime PublicationDate () => DateTime.Now;
         public DateTime DateFrom { get; private set; }
         public DateTime DateTo { get; private set; }
-        public Location LocationFrom { get; } 
-        public Location LocationTo { get; }
+        public Locality LocationFrom { get; } 
+        public Locality LocationTo { get; }
+
         private double _price;
         public double Price
         {
@@ -34,22 +35,19 @@ namespace Classes_CSharp
                 _price = value;
             }
         }
-        public string Description { get; set; }
+        public string AdditionalInformation { get; set; } 
            
-        public Post(DateTime dataFrom, DateTime dateTo, Location locationFrom,
-            Location locationTo,  double price, string description = "")
+        public Post(DateTime dataFrom, DateTime dateTo, 
+            Locality localityFrom, Locality localityTo, double price, string additionalInformation, User user)
         {
             DateFrom = dataFrom;
             DateTo = dateTo;
-            LocationFrom = locationFrom;
-            LocationTo = locationTo;
+            LocationFrom = localityFrom;
+            LocationTo = localityTo;
             Price = price;
-            Description = $"Direction: {LocationFrom.Country.Name} - {LocationTo.Country.Name}, Price: {Price} ";
-
-            if (!string.IsNullOrWhiteSpace(description))
-            {
-                Description += description;
-            }
+            AdditionalInformation = additionalInformation;
+            User = user;
+                 
         }
 
         #region Event
@@ -65,7 +63,7 @@ namespace Classes_CSharp
         
         public override string ToString()
         {
-            return Description;
+            return $"{LocationFrom} - {LocationTo}, {DateFrom.ToShortDateString()}-{DateTo.ToShortDateString()}, {Price}";
         }
     }
 }

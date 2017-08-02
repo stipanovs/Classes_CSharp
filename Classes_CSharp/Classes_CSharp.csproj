@@ -73,11 +73,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataLocation\AddressDetail.cs" />
     <Compile Include="DataLocation\City.cs" />
     <Compile Include="DataLocation\Country.cs" />
     <Compile Include="Comparer\CountryEqalityComparer.cs" />
     <Compile Include="CustomList.cs" />
-    <Compile Include="DataLocation\IUnitLocality.cs" />
+    <Compile Include="DataLocation\ILocalityPlace.cs" />
     <Compile Include="DataLocation\Village.cs" />
     <Compile Include="PostsModel\SpecificationType\CargoSpecification.cs" />
     <Compile Include="PostsModel\SpecificationType\ISpecification.cs" />
@@ -96,6 +97,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Users\ActivityProfile.cs" />
+    <Compile Include="Users\OwnerShipType.cs" />
+    <Compile Include="Users\Person.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserMessageBox.cs" />
   </ItemGroup>

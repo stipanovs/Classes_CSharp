@@ -10,12 +10,12 @@ namespace Classes_CSharp
     {
         public bool Equals(Country x, Country y)
         {
-            return x.Name == y.Name && x.CountryCode == y.CountryCode;
+            return x.Name == y.Name && x.NumericCode == y.NumericCode;
         }
 
         public int GetHashCode(Country obj)
         {
-            return (obj.Name + ";" + obj.CountryCode).GetHashCode();
+            return (obj.Name + ";" + obj.NumericCode).GetHashCode();
         }
     }
 }

@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Classes_CSharp.DataLocation
 {
-    public class Village : EntityBase, IUnitLocality
+    public class Village : EntityBase, ILocalityPlace
     {
         public string Name  { get; set; }
+        public Country Country { get; set; }
 
-        public Village(string name)
+        public Village(string name, Country country)
         {
             Name = name;
+            Country = country;
         }
     }
 }

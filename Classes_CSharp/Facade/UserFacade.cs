@@ -31,30 +31,29 @@ namespace Classes_CSharp.Facade
             return !_user._bloked;
         }
 
-        public void CreatePost(Post post)
-        {
-            if (IsUserEligibleToPost()) _user.UserAddPost(post);
-        }
+        //public void CreatePost(Post post)
+        //{
+        //    if (IsUserEligibleToPost()) _user.UserAddPost(post);
+        //}
 
         public void CreatePost( DateTime dataFrom, DateTime dateTo,
-            Location locationFrom, Location locationTo, double price, long id, string desc, 
-            ISpecification specification)
+            Locality locationFrom, Locality locationTo, double price, string additionalInformation, ISpecification specification)
         {
             if (IsUserEligibleToPost())
                 _repositoryPosts.Create(_postFactory.CreateNewPost(dataFrom, dateTo, locationFrom,
-                    locationTo, price, desc, specification));
+                    locationTo, price, additionalInformation, specification));
         }
 
-        public void RemovePost(Post post)
-        {
-            _user.UserDeletePost(post);
-        }
+        //public void RemovePost(Post post)
+        //{
+        //    _user.UserDeletePost(post);
+        //}
         
         public IEnumerable<Post> FindAllTransportFrom(Country fromCountry, Country toCountry)
         {
             var allpost = _repositoryPosts.GetAll();
             return allpost
-                .Where(p => p.LocationFrom.Country == fromCountry && p.LocationTo.Country == toCountry);
+                .Where(p => p.LocationFrom.LocalityPlace.Country == fromCountry && p.LocationTo.LocalityPlace.Country == toCountry);
         }
 
         public IEnumerable<Post> FindAllCargoFrom(Country fromCountry, Country toCountry)

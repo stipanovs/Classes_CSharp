@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Classes_CSharp.PostsModel.SpecificationType;
+using Classes_CSharp.Users;
 
 namespace Classes_CSharp.PostsModel
 {
@@ -11,9 +12,9 @@ namespace Classes_CSharp.PostsModel
     {
         public CargoSpecification Specification { get; set; }
        
-        public PostCargo(DateTime dataFrom, DateTime dateTo, Location locationFrom,
-            Location locationTo, double price, string description = "", CargoSpecification specification = null) 
-            : base(dataFrom, dateTo, locationFrom, locationTo, price, description)
+        public PostCargo(DateTime dataFrom, DateTime dateTo, Locality locationFrom,
+            Locality locationTo, double price, string additionalInformation, CargoSpecification specification = null, User user = null) 
+            : base(dataFrom, dateTo, locationFrom, locationTo, price, additionalInformation, user)
         {
             Specification = specification;
         }

@@ -11,25 +11,24 @@ namespace Classes_CSharp
 {
     public class Country : EntityBase
     {
-        
-        private readonly string _nationalCurrency;
         public string Name { get; private set; }
-        public int CountryCode { get;  private set; }
+        public int NumericCode { get;  private set; }
+        public string Alpha2Code { get; set; }
 
-        public Country(string name, int countryCode = 0, string currency = "null")
+        public Country(string name, int digitalCode = 0, string isoCode = "")
         {
             if (string.IsNullOrWhiteSpace(name))
             {
                 throw new ArgumentNullException(nameof(name) + " is null or whitespace");
             }
             Name = name;
-            CountryCode = countryCode;
-            _nationalCurrency = currency;
+            NumericCode = digitalCode;
+            Alpha2Code = isoCode;
         }
 
         public override string ToString()
         {
-            return Name + " " + CountryCode + " " + _nationalCurrency;
+            return $"Name: {Name}, IsoCode: {Alpha2Code}";
         }
     }
 }
