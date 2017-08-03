@@ -15,14 +15,19 @@ using Classes_CSharp.PostsModel;
 using Classes_CSharp.PostsModel.SpecificationType;
 using IronPython.Hosting;
 using static System.Console;
-
+using HibernatingRhinos.Profiler.Appender.NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Driver;
+using NHibernate.Dialect;
+using System.Reflection;
 
 namespace Classes_CSharp
 {
    class Program
     {
         static void Main(string[] args)
-        {
+        {App_Start.NHibernateProfilerBootstrapper.PreStart();
+
             #region countries
 
             var moldova = new Country("Moldova", 648, "MD");
@@ -219,7 +224,7 @@ namespace Classes_CSharp
             //}
             //catch (Exception ex) when (ex.Message.Equals("400"))
             //{
-            //    Write("Bad Request");
+            //    Write("Bad�Request");
             //}
             //catch (Exception ex) when (ex.Message.Equals("401"))
             //{
@@ -227,7 +232,7 @@ namespace Classes_CSharp
             //}
             //catch (Exception ex) when (ex.Message.Equals("402"))
             //{
-            //    Write("Payment Required");
+            //    Write("Payment�Required");
             //}
             //catch (Exception ex) when (ex.Message.Equals("403"))
             //{
@@ -235,7 +240,7 @@ namespace Classes_CSharp
             //}
             //catch (Exception ex) when (ex.Message.Equals("404"))
             //{
-            //    Write("Not Found");
+            //    Write("Not�Found");
             //}
 
 
@@ -288,13 +293,40 @@ namespace Classes_CSharp
 
 
             #endregion
-            
-            Console.ReadKey();
+
+            #region NHIBERNATE
+
+            //NHibernateProfiler.Initialize();
+            //var cfg = new Configuration();
+            //cfg.DataBaseIntegration(x =>
+            //{
+            //    x.ConnectionString = "Server=localhost;Databe=NHibernateDemo;IntegrationSecurity=SSPI;";
+            //    x.Driver<SqlClientDriver>();
+            //    x.Dialect<MsSql2008Dialect>();
+            //});
+            //cfg.AddAssembly(Assembly.GetExecutingAssembly());
+            //var sessionFactory = cfg.BuildSessionFactory();
+            //using (var session = sessionFactory.OpenSession())
+            //    using ( var tx = session.BeginTransaction())
+            //{
+            //    // logic
+            //    tx.Commit();
+            //}
+
+
+            #endregion
+
+
+                Console.ReadKey();
         }
    }
     
-    //class A{}
-    //class B : A{}
-    //class C : B { }
-    //class D : A { }
+    public class Customer
+    {
+        public virtual int Id { get; set; }
+        public virtual string FirstName { get; set; }
+        public virtual string LastName { get; set; }
+
+    }
 }
+

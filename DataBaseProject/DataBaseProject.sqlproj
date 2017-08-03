@@ -60,6 +60,8 @@
     <Folder Include="Tables" />
     <Folder Include="Tables\User" />
     <Folder Include="Tables\Post" />
+    <Folder Include="Queries" />
+    <Folder Include="Queries\Post" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Country.sql">
@@ -78,8 +80,14 @@
     <Build Include="Tables\User\User.sql" />
     <Build Include="Tables\User\UserRole.sql" />
     <Build Include="Tables\Post\PostTransport.sql" />
+    <None Include="Queries\SelectCountryStartWithM.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DBCargo.publish.publish.xml" />
+    <Build Include="DBCargo.publish.publish.xml" />
+    <None Include="Customer.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Queries\Post\SelectCargoFromCountryToCountry.sql" />
+    <None Include="Queries\InsertCountry.sql" />
   </ItemGroup>
 </Project>
