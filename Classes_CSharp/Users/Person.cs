@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Classes_CSharp.Users
+namespace CargoLogistic.Users
 {
     public class Person
     {

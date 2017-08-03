@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Classes_CSharp.Events;
-using Classes_CSharp.Models;
-using Classes_CSharp.Repository;
-using Classes_CSharp.Users;
+using CargoLogistic.Events;
+using CargoLogistic.Models;
+using CargoLogistic.Repository;
+using CargoLogistic.Users;
 
-namespace Classes_CSharp
+namespace CargoLogistic
 {
     public abstract class Post : EntityBase
     {

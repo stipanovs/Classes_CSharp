@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Classes_CSharp.PostsModel.SpecificationType;
+using CargoLogistic.PostsModel.SpecificationType;
 using Microsoft.Scripting.Interpreter;
 
-namespace Classes_CSharp.PostsModel
+namespace CargoLogistic.PostsModel
 {
     
     public class CargoSpecification : ISpecification

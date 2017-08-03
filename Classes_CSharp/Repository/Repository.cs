@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace Classes_CSharp.Repository
+namespace CargoLogistic.Repository
 {
     public class Repository<T> : IRepository<T> where T : EntityBase
     {

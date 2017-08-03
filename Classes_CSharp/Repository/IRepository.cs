@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Classes_CSharp;
+using CargoLogistic;
 
-namespace Classes_CSharp.Repository
+namespace CargoLogistic.Repository
 {
     public interface IRepository<T> where T: EntityBase
     {

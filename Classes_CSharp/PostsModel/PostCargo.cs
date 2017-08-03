@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Classes_CSharp.PostsModel.SpecificationType;
-using Classes_CSharp.Users;
+using CargoLogistic.PostsModel.SpecificationType;
+using CargoLogistic.Users;
 
-namespace Classes_CSharp.PostsModel
+namespace CargoLogistic.PostsModel
 {
     public class PostCargo : Post
     {

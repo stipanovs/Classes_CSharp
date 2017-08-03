@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classes_CSharp", "Classes_CSharp\Classes_CSharp.csproj", "{2592AA9F-E8C7-48DC-9E62-51EF8DD084C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CargoLogistic", "Classes_CSharp\CargoLogistic.csproj", "{2592AA9F-E8C7-48DC-9E62-51EF8DD084C4}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DataBaseProject", "DataBaseProject\DataBaseProject.sqlproj", "{A5EAED6B-52AF-4324-8A52-393608C65AE0}"
 EndProject

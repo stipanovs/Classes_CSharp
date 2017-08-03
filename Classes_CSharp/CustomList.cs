@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Classes_CSharp
+namespace CargoLogistic
 {
     public class CustomList<T> : IEnumerable<T>
     {

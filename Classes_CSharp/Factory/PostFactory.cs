@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Classes_CSharp.PostsModel;
-using Classes_CSharp.PostsModel.SpecificationType;
+using CargoLogistic.PostsModel;
+using CargoLogistic.PostsModel.SpecificationType;
 using Microsoft.Scripting.Utils;
 
 
-namespace Classes_CSharp
+namespace CargoLogistic
 {
     
     public class PostFactory

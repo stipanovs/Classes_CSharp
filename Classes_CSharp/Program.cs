@@ -6,14 +6,13 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Classes_CSharp.DataLocation;
-using Classes_CSharp.Repository;
-using Classes_CSharp.Users;
-using Classes_CSharp.Events;
-using Classes_CSharp.Facade;
-using Classes_CSharp.PostsModel;
-using Classes_CSharp.PostsModel.SpecificationType;
-using IronPython.Hosting;
+using CargoLogistic.DataLocation;
+using CargoLogistic.Repository;
+using CargoLogistic.Users;
+using CargoLogistic.Events;
+using CargoLogistic.Facade;
+using CargoLogistic.PostsModel;
+using CargoLogistic.PostsModel.SpecificationType;
 using static System.Console;
 using HibernatingRhinos.Profiler.Appender.NHibernate;
 using NHibernate.Cfg;
@@ -21,12 +20,12 @@ using NHibernate.Driver;
 using NHibernate.Dialect;
 using System.Reflection;
 
-namespace Classes_CSharp
+namespace CargoLogistic
 {
    class Program
     {
         static void Main(string[] args)
-        {App_Start.NHibernateProfilerBootstrapper.PreStart();
+        { 
 
             #region countries
 
@@ -60,30 +59,7 @@ namespace Classes_CSharp
                 dataFrom: new DateTime(2017, 07, 20), dateTo: new DateTime(2017, 08, 02), price: 3500.00, additionalInformation: "call 379166741");
             #endregion
 
-            #region Dynamic
-
-            //var PythonRuntime = Python.CreateRuntime();
-            //dynamic pythonFile = PythonRuntime.UseFile("Test.py");
-            //dynamic resultFromPythonTest = pythonFile.SummNumbersInRange(50);
-            //Console.WriteLine(resultFromPythonTest);
-
-            //// import Countries from Python file
-            //dynamic countryList = pythonFile.country_list;
-
-            //for (int i = 0; i < countryList.Count; i++)
-            //{
-            //    countries.Add(new Country(countryList[i].name, countryList[i].code));
-            //}
-
-            //foreach (var c in countries)
-            //{
-            //    WriteLine(c.Name);
-            //}
-
-            //Console.ReadKey();
-
-            #endregion
-
+           
             #region NameOf
             // Country name validate
 
@@ -160,12 +136,7 @@ namespace Classes_CSharp
 
             #endregion
             
-            #region Tuple
-            //// tuple
-            //(string Alpha, string Beta, string Gama) namedLetters = ("a", "b", "c");
-
-            #endregion
-
+            
             #region FACTORY
             PostFactory postFactory = new PostFactory();
 
@@ -295,7 +266,7 @@ namespace Classes_CSharp
             #endregion
 
             #region NHIBERNATE
-
+           
             //NHibernateProfiler.Initialize();
             //var cfg = new Configuration();
             //cfg.DataBaseIntegration(x =>
@@ -317,7 +288,7 @@ namespace Classes_CSharp
             #endregion
 
 
-                Console.ReadKey();
+            Console.ReadKey();
         }
    }
     

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Classes_CSharp.Events;
+using CargoLogistic.Events;
 using System.Windows;
-using Classes_CSharp.DataLocation;
+using CargoLogistic.DataLocation;
 
-namespace Classes_CSharp.Users
+namespace CargoLogistic.Users
 {
     public class User
     {

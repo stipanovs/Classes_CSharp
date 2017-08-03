@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Classes_CSharp.PostsModel;
-using Classes_CSharp.PostsModel.SpecificationType;
-using Classes_CSharp.Repository;
-using Classes_CSharp.Users;
+using CargoLogistic.PostsModel;
+using CargoLogistic.PostsModel.SpecificationType;
+using CargoLogistic.Repository;
+using CargoLogistic.Users;
 
-namespace Classes_CSharp.Facade
+namespace CargoLogistic.Facade
 {
     public class UserFacade
     {

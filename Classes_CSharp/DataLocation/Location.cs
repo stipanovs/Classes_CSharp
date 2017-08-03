@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Classes_CSharp.DataLocation;
+using CargoLogistic.DataLocation;
 
-namespace Classes_CSharp
+namespace CargoLogistic
 {
     public class Locality : EntityBase
     {
