@@ -17,23 +17,11 @@ namespace CargoLogistic
                
         public Locality(ILocalityPlace unitLocality, AddressDetail addressDetail = null)
         {
-            
             LocalityPlace = unitLocality;
             AddressDetail = addressDetail;
         }
 
-        //public void AddToLocationList(Locality location)
-        //{
-        //    if (_locations.Contains(location))
-        //    {
-        //        Console.WriteLine($"This Location: {location.FullAddressLocation()} is content in the list.");
-        //    }
-        //    else
-        //    {
-        //        _locations.Add(location);
-        //    }
-        //}
-
+        
         public override string ToString()
         {
             return $"{LocalityPlace.Country.Name}, {LocalityPlace?.Name}, {AddressDetail}" ;

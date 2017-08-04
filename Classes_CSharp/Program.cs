@@ -58,13 +58,7 @@ namespace CargoLogistic
             var post5 = new PostCargo(locationFrom: locChisinau, locationTo: locKiev,
                 dataFrom: new DateTime(2017, 07, 20), dateTo: new DateTime(2017, 08, 02), price: 3500.00, additionalInformation: "call 379166741");
             #endregion
-
-           
-            #region NameOf
-            // Country name validate
-
-            #endregion
-
+                       
             #region Comparer
 
             //// ex. IEqualityComparer

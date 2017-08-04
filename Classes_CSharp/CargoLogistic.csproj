@@ -89,7 +89,7 @@
     <Compile Include="Repository\EntityBase.cs" />
     <Compile Include="Facade\UserFacade.cs" />
     <Compile Include="Events\PostPriceChangedEventArgs.cs" />
-    <Compile Include="DataLocation\Location.cs" />
+    <Compile Include="DataLocation\Locality.cs" />
     <Compile Include="Models\ICargoType.cs" />
     <Compile Include="PostsModel\Post.cs" />
     <Compile Include="Comparer\CountryComparer.cs" />
