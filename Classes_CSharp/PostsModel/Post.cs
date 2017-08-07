@@ -31,7 +31,7 @@ namespace CargoLogistic
                 }
 
                 if (_price < value)
-                    OnPostPriceChanged(new PostPriceChangedEventArgs(Price, value, ID));
+                    OnPostPriceChanged(new PostPriceChangedEventArgs(Price, value, Id));
                 _price = value;
             }
         }

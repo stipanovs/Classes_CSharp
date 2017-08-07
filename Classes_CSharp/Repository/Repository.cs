@@ -27,7 +27,7 @@ namespace CargoLogistic.Repository
 
         public T GetById(long ID)
         {
-            return _contextList.FirstOrDefault(x => x.ID == ID);
+            return _contextList.FirstOrDefault(x => x.Id == ID);
         }
 
         public void SaveToFile(T entity, string filename)

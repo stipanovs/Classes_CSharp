@@ -8,6 +8,6 @@ namespace CargoLogistic
 {
     public abstract class EntityBase
     {
-        public long ID { get; protected set; }
+        public long Id { get; protected set; }
     }
 }

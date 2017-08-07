@@ -81,13 +81,18 @@
     <Build Include="Tables\User\UserRole.sql" />
     <Build Include="Tables\Post\PostTransport.sql" />
     <None Include="Queries\SelectCountryStartWithM.sql" />
+    <None Include="Queries\SelectPersonWithNullPhoneNumber.sql" />
+    <None Include="Queries\Post\SELECTPostCargoAllDetail.sql">
+      <QuotedIdentifier>ProjectDefault</QuotedIdentifier>
+    </None>
+    <None Include="Queries\Post\SelectAllPostCargoFromItaly.sql" />
+    <None Include="Queries\Post\SelectAllPostCargoFromAllToAll_filter_In.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="DBCargo.publish.publish.xml" />
     <None Include="Customer.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Queries\Post\SelectCargoFromCountryToCountry.sql" />
     <None Include="Queries\InsertCountry.sql" />
   </ItemGroup>
 </Project>
