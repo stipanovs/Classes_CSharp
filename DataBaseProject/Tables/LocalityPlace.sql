@@ -4,6 +4,7 @@
 	[Name] NVARCHAR(70) NOT NULL UNIQUE,
 	[PlaceTypeId] INT,
 	[CountryId] INT,
+
 	CONSTRAINT [PK_LocalityPlace] PRIMARY KEY CLUSTERED ([Id]),
 	CONSTRAINT [LocalityTypeId] FOREIGN KEY([PlaceTypeId]) REFERENCES 
 	[dbo].[LocalityPlaceType]([Id]) ON DELETE NO ACTION,
