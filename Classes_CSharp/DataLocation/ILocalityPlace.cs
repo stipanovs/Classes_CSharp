@@ -8,7 +8,7 @@ namespace CargoLogistic.DataLocation
 {
     public interface ILocalityPlace
     {
-        Country Country { get; set; }
-        string Name { get; set; }
+        Country Country { get;  set; }
+        string Name { get;  set; }
     }
 }
