@@ -20,6 +20,11 @@ namespace CargoLogistic.Domain
             AddressDetail = addressDetail;
         }
 
+        protected Locality()
+        {
+
+        }
+
         public override string ToString()
         {
             return $"{LocalityPlace.Country.Name}, {LocalityPlace?.Name}, {AddressDetail}" ;

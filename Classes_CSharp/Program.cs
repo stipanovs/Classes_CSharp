@@ -150,15 +150,14 @@ namespace CargoLogistic
                 {
 
 
-                    //var countries = session.QueryOver<Country>()
-                    //    .List();
+                    var countries = session.QueryOver<Country>()
+                        .Select(x => x.NumericCode)
+                        .List<int>();
+                    
 
-                    var citys = session.QueryOver<Village>()
-                        .List();
-
-                    foreach( var c in citys)
+                    foreach ( var c in countries)
                     {
-                        Console.WriteLine(c.Name +" ");
+                        Console.WriteLine(c);
                     }
                 }
             }
