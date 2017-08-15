@@ -2,13 +2,11 @@
 (
 	[Id] INT IDENTITY(1,1) NOT NULL,
 	[Name] NVARCHAR(70) NOT NULL UNIQUE,
-	[PlaceTypeId] INT,
-	[CountryId] INT,
+	[CountryId] INT NOT NULL,
+	[ClassType] NVARCHAR(70) NOT NULL 
 
-	CONSTRAINT [PK_LocalityPlace] PRIMARY KEY CLUSTERED ([Id]),
-	CONSTRAINT [LocalityTypeId] FOREIGN KEY([PlaceTypeId]) REFERENCES 
-	[dbo].[LocalityPlaceType]([Id]) ON DELETE NO ACTION,
-	CONSTRAINT [LPCountryId] FOREIGN KEY([CountryId]) REFERENCES 
+	CONSTRAINT [PK_LocalityPlace2] PRIMARY KEY CLUSTERED ([Id]),
+	CONSTRAINT [LocalityPlace_CountryId] FOREIGN KEY([CountryId]) REFERENCES 
 	[dbo].[Country]([Id]) ON DELETE NO ACTION
 );
 

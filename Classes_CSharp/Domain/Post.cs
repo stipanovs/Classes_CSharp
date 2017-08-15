@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CargoLogistic.Events;
-using CargoLogistic.Models;
-using CargoLogistic.Repository;
-using CargoLogistic.Users;
 
-namespace CargoLogistic
+using CargoLogistic.Repository;
+using CargoLogistic.Domain.Users;
+
+namespace CargoLogistic.Domain
 {
     public abstract class Post : EntityBase
     {

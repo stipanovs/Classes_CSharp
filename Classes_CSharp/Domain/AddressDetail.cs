@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CargoLogistic.DataLocation
+namespace CargoLogistic.Domain
 {
     public class AddressDetail
     {
-        public string Index { get; set; }
-        public string Street { get; set; }
+        public virtual string ZipCode { get; private set; }
+        public virtual string Street { get; set; }
 
-        public AddressDetail(string index, string street)
+        public AddressDetail(string zipCode, string street)
         {
-            Index = index;
+            ZipCode = zipCode;
             Street = street;
         }
 
         public override string ToString()
         {
-            return $"{Index} {Street}";
+            return $"{ZipCode}, {Street}";
         }
     }
 }

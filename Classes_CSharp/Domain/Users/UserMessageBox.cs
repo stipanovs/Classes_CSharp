@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CargoLogistic.Users
+namespace CargoLogistic.Domain.Users
 {
     class UserMessageBox
     {

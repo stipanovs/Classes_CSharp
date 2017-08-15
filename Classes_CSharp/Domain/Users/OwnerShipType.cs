@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CargoLogistic.PostsModel.SpecificationType
+namespace CargoLogistic.Domain.Users
 {
-    public interface ISpecification 
+    public enum OwnerShipType
     {
+        Comapany = 1,
+        LegalPerson,
+        PrivatePerson,
         
     }
 }

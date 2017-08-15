@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CargoLogistic.Models
+namespace CargoLogistic.Domain.SpecificationType
 {
-    public interface ICargoType
+    public interface ISpecification 
     {
-        //private string Description;
+        
     }
 }

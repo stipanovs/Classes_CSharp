@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using CargoLogistic.Events;
 using System.Windows;
-using CargoLogistic.DataLocation;
 
-namespace CargoLogistic.Users
+
+namespace CargoLogistic.Domain.Users
 {
     public class User
     {

@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="HibernatingRhinos.Profiler.Appender, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0774796e73ebf640, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernateProfiler.4.0.4046\lib\HibernatingRhinos.Profiler.Appender.dll</HintPath>
     </Reference>
@@ -73,35 +76,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataLocation\AddressDetail.cs" />
-    <Compile Include="DataLocation\City.cs" />
-    <Compile Include="DataLocation\Country.cs" />
+    <Compile Include="Domain\AddressDetail.cs" />
+    <Compile Include="Domain\City.cs" />
+    <Compile Include="Domain\Country.cs" />
     <Compile Include="Comparer\CountryEqalityComparer.cs" />
     <Compile Include="CustomList.cs" />
-    <Compile Include="DataLocation\ILocalityPlace.cs" />
-    <Compile Include="DataLocation\Village.cs" />
-    <Compile Include="PostsModel\SpecificationType\CargoSpecification.cs" />
-    <Compile Include="PostsModel\SpecificationType\ISpecification.cs" />
-    <Compile Include="PostsModel\PostCargo.cs" />
+    <Compile Include="Domain\LocalityPlace.cs" />
+    <Compile Include="Domain\Village.cs" />
+    <Compile Include="Domain\SpecificationType\CargoSpecification.cs" />
+    <Compile Include="Domain\SpecificationType\ISpecification.cs" />
+    <Compile Include="Domain\PostCargo.cs" />
     <Compile Include="Factory\PostFactory.cs" />
-    <Compile Include="PostsModel\PostTransport.cs" />
-    <Compile Include="PostsModel\SpecificationType\TransportSpecification.cs" />
+    <Compile Include="Domain\PostTransport.cs" />
+    <Compile Include="Domain\SpecificationType\TransportSpecification.cs" />
+    <Compile Include="Mapping\CityMap.cs" />
+    <Compile Include="Mapping\CountryMap.cs" />
+    <Compile Include="Mapping\LocalityPlaceMap.cs" />
+    <Compile Include="Mapping\VillageMap.cs" />
+    <Compile Include="NHibernateInitialize\NHibernateProvider.cs" />
     <Compile Include="Repository\EntityBase.cs" />
-    <Compile Include="Facade\UserFacade.cs" />
     <Compile Include="Events\PostPriceChangedEventArgs.cs" />
-    <Compile Include="DataLocation\Locality.cs" />
-    <Compile Include="Models\ICargoType.cs" />
-    <Compile Include="PostsModel\Post.cs" />
+    <Compile Include="Domain\Locality.cs" />
+    <Compile Include="Domain\ICargoType.cs" />
+    <Compile Include="Domain\Post.cs" />
     <Compile Include="Comparer\CountryComparer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
-    <Compile Include="Users\ActivityProfile.cs" />
-    <Compile Include="Users\OwnerShipType.cs" />
-    <Compile Include="Users\Person.cs" />
-    <Compile Include="Users\User.cs" />
-    <Compile Include="Users\UserMessageBox.cs" />
+    <Compile Include="Domain\Users\ActivityProfile.cs" />
+    <Compile Include="Domain\Users\OwnerShipType.cs" />
+    <Compile Include="Domain\Users\Person.cs" />
+    <Compile Include="Domain\Users\User.cs" />
+    <Compile Include="Domain\Users\UserMessageBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

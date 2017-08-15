@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CargoLogistic.PostsModel.SpecificationType
+namespace CargoLogistic.Domain.SpecificationType
 {
     public enum TransportType
     {
@@ -13,6 +13,7 @@ namespace CargoLogistic.PostsModel.SpecificationType
         Minibus,
         Pickup
     }
+
     public class TransportSpecification : ISpecification
     {
         public TransportType TransportType;

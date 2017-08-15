@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CargoLogistic.PostsModel.SpecificationType;
-using CargoLogistic.Users;
+using CargoLogistic.Domain.SpecificationType;
+using CargoLogistic.Domain.Users;
 
-namespace CargoLogistic.PostsModel
+namespace CargoLogistic.Domain
 {
     public class PostTransport : Post
     {

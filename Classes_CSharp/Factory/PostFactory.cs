@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CargoLogistic.PostsModel;
-using CargoLogistic.PostsModel.SpecificationType;
+using CargoLogistic.Domain;
+using CargoLogistic.Domain.SpecificationType;
 using Microsoft.Scripting.Utils;
 
 
